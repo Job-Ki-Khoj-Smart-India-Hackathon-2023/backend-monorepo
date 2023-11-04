@@ -1,0 +1,17 @@
+
+version: '3'
+
+tasks:
+
+  dev:
+    cmds:
+      - python ./src/app.py
+
+  dock_build:
+    cmds:
+      - docker build -t ml .
+  dock_run:
+    cmds:
+      - cmd: docker rm -f ml
+        ignore_error: true
+      - docker run -p 3002:3002 --name ml --env-file .env.dev ml

@@ -1,0 +1,120 @@
+PURPOSE OF THIS FILE IS TO KNOW ABOUT pgrkam api's for job search purposes
+private job - type 1
+govt job - type 2
+
+
+SEARCH FLOW
+
+In case of
+
+private:
+	job_type: 1 <id of job { can be found in pgrkam 'get filter values' ->  job type options } >
+	education_level: <id of qualification { can be found in pgrkam 'get filter values' -> qualification level options } >
+	experience: <id of experience { can be found in pgrkam 'get filter values' -> experience options } >
+	location[0]: <id of location { can be found in pgrkam 'get filter values' -> state and district options } >	
+	job_title: <job title> {get filter values -> Job title options}
+
+
+	sample response:
+{
+    "status": "200",
+    "data": [
+        {
+            "id": "8066",
+            "org_id": "1873075",
+            "org_name": null,
+            "job_title": "Work from home for women ",
+            "designation": null,
+            "description": "18+ \nPart time work ,online work , full time work for girls students, housewife, unemployed women.",
+            "min_exp": null,
+            "max_exp": null,
+            "rel_min_exp": null,
+            "rel_max_exp": null,
+            "location": "[]",
+            "state_id": "[\"37\"]",
+            "key_skills": null,
+            "nature_of_job": "1",
+            "salary_min": "15000",
+            "salary_max": "20000",
+            "salary_type": "Monthly",
+            "expiring_on": null,
+            "shift_type": null,
+            "available_join": null,
+            "gender_preference": "Both",
+            "category": null,
+            "ex_servicemen": "0",
+            "functional_area": "0",
+            "jobId": null,
+            "age_preference": "35",
+            "max_age": null,
+            "education_level": "12th",
+            "qualification": null,
+            "qualification2": null,
+            "qualification3": null,
+            "vacancies": "150",
+            "pwd": "0",
+            "isActive": "1",
+            "created_at": "15-07-2023",
+            "postedBy": null
+        },
+
+govt: 
+	govtType: GOP:1 / GOP/Other states:2	
+	education_level: <id of qualification { can be found in pgrkam 'get filter values' -> qualification level options } >
+	job_type: 1 <id of job { can be found in pgrkam 'get filter values' ->  job type options } >
+	job_title: <job title> {get filter values -> Job title options}
+
+
+	sample response:
+{
+    "status": "200",
+    "data": [
+        {
+            "id": "8395",
+            "company_name": "The Institute for Plasma Research (IPR)",
+            "govt": "Government of India",
+            "job_title": "Multi-Tasking Staff (MTS) ",
+            "location": "Gujarat  ",
+            "description": "The job requires working knowledge in computer (MS word, MS Excel etc.) and ability to do routine correspondence in hindi/english",
+            "display_qualification": "graduation in any discipline",
+            "search_qualification": "63",
+            "education_level": "7",
+            "education_level2": "7",
+            "search_qualification2": "361,362,363,364",
+            "specilization1": null,
+            "specilization2": null,
+            "designation": null,
+            "minmark": "",
+            "district_id": null,
+            "experience": "nil",
+            "specialization": "'admin'",
+            "min_exp": "0",
+            "max_exp": "0",
+            "salary": null,
+            "gender_preference": "Any",
+            "gender_search": null,
+            "min_age_search": null,
+            "min_age": "0",
+            "max_age": "30",
+            "vacancy": "31",
+            "last_date": "3022-04-30",
+            "walk_in_interview": null,
+            "posted_on": "2022-04-10",
+            "pdf_link": "https://www.ipr.res.in/documents/Advt_02_2022_MTS_English.pdf",
+            "apply_link": "https://www.ipr.res.in/documents/jobs_career.html",
+            "apply_mode": "Online",
+            "status": "Published",
+            "remarks": "published",
+            "dbees_remarks": "",
+            "dbee_reply": "",
+            "created_at": "10-04-2022",
+            "updated_at": "2022-04-10 17:33:13",
+            "postedBy": "Varun Joshi",
+            "posted_dbee": "52",
+            "age_preference": "0",
+            "org_name": "The Institute for Plasma Research (IPR)",
+            "qualification": "graduation in any discipline",
+            "expiring_on": "30-04-3022",
+            "vacancies": "31"
+        },
+

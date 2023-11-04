@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    ports: 
+      - "27017:27017"
+    networks:
+      - network
+    volumes:
+      - ./docker/mongo_data:/data/db
+
+  redis:
+    image: redis
+    networks:
+      - network
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./docker/redis_data:/data
+
+  backend:
+    build:
+      context: ./backend
+    ports: 
+      - "3000:3000"
+    networks:
+      - network
+    env_file: ./backend/.env
+    environment:
+      REDIS_URL: redis://redis:6379
+      MONGO_URI: mongodb://mongo:27017/sih
+      ML_SERVICE_URI: ml:50051
+    depends_on:
+      - mongo
+      - redis
+      - ml
+
+  ml:
+    build:
+      context: ./ml
+    env_file: ./ml/.env.dev
+    ports:
+      - "50051:50051"
+    networks:
+      - network
+  
+
+networks:
+  network:
+
