@@ -4,7 +4,6 @@ from generated.common_pb2 import Response
 
 
 class PGRKAMPrivateJobController():
-
     def CreatePGRKAMPrivateJob(self) -> Response:
         return Response(ok=True, message="Job created successfully")
 

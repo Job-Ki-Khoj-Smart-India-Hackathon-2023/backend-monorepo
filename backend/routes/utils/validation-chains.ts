@@ -1,4 +1,4 @@
-import { body } from "express-validator";
+import {query, body, param } from "express-validator";
 
 
 function validateMandatoryPersonalInfo(){
@@ -89,7 +89,6 @@ function validateSingleEducationInfo(){
 	];
 }
 
-
 function validateSingleExperienceInfo(){
 	return [
 		body('experience').isObject().withMessage('Experience must be an object'),
@@ -102,6 +101,17 @@ function validateSingleExperienceInfo(){
 	];
 }
 
+function idValidator(){
+	return param('id').isString().withMessage('Invalid id');
+}
+function pageInfoValidator(){
+	return [
+		query('page').isInt({min: 1}).withMessage('Invalid page number'),
+		query('pageSize').isInt({min: 1, max:100}).withMessage('Invalid page size')
+	];
+}
+
+
 export {
 	validateMandatoryPersonalInfo,
 	validateMandatoryContactInfo,
@@ -109,4 +119,6 @@ export {
 	validateMandatoryEducationInfo,
 	validateSingleEducationInfo,
 	validateSingleExperienceInfo,
+	idValidator,
+	pageInfoValidator
 }

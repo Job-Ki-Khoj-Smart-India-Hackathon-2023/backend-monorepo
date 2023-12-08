@@ -1,0 +1,44 @@
+version: '3'
+
+vars:
+  ML_PATH: ./ml/src/generated/
+  BACKEND_PATH: ./backend/generated/
+  PROTO_PATH: ./proto/
+  COMPOSE_DEV_FILE: compose.dev.yaml
+
+tasks:
+  build:dev:
+    cmds:
+      - docker compose -f {{.COMPOSE_DEV_FILE}} build 
+
+  rebuild:dev:
+    cmds:
+      - docker compose -f {{.COMPOSE_DEV_FILE}} build --no-cache
+
+  run:dev:
+    cmds:
+      - docker compose -f {{.COMPOSE_DEV_FILE}} watch
+  
+  build:run:dev:
+    cmds:
+      - task: build:dev 
+      - task: run:dev
+
+  rebuild:run:dev:
+    cmds:
+      - task: rebuild:dev 
+      - task: run:dev
+
+  gen:proto:ml:
+    cmds:
+    - python -m grpc_tools.protoc --proto_path={{.PROTO_PATH}} --python_out={{.ML_PATH}} --pyi_out={{.ML_PATH}} --grpc_python_out={{.ML_PATH}} job_service.proto
+    - python -m grpc_tools.protoc --proto_path={{.PROTO_PATH}} --python_out={{.ML_PATH}} --pyi_out={{.ML_PATH}} common.proto pgrkam_private_job.proto jkk_job.proto
+
+  gen:proto:backend:
+    cmds:
+    - protoc --ts_out={{.BACKEND_PATH}} --proto_path={{.PROTO_PATH}} common.proto jkk_job.proto pgrkam_private_job.proto job_service.proto
+
+  gen:proto:all:
+    cmds:
+      - task: gen:proto:ml
+      - task: gen:proto:backend

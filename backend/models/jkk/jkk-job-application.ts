@@ -10,10 +10,10 @@ const jobApplicationSchema = new Schema({
 		ref: 'User'
 	},
 
-	jobPostId: {
+	jkkJobPostId: {
 		type: Types.ObjectId,
 		required: true,
-		ref: 'JobPost'
+		ref: 'JKKJobPost'
 	},
 
 	education: {
@@ -38,6 +38,5 @@ const jobApplicationSchema = new Schema({
 
 
 const jobApplicationModel = model('JobApplication', jobApplicationSchema);
-
 
 export default jobApplicationModel;

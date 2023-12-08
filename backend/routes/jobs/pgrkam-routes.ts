@@ -4,27 +4,25 @@ import {
 	getPrivateJobs,
 	getPublicJob,
 	getPublicJobs,
-	getPrivateJobRecommendations
+	getPrivateJobRecommendations,
+	getPublicJobRecommendations
 } from '../../controllers/jobs-controllers/pgrkam/pgrkam-controllers';
 import validateResult from "../../middlewares/validate-result";
-import { param, query } from "express-validator";
+import {
+	idValidator,
+	pageInfoValidator
+} from '../utils/validation-chains';
+
 const router = Router();
 
-function idValidator(){
-	return param('id').isString().withMessage('Invalid id');
-}
-function pageInfoValidator(){
-	return [
-		query('page').isInt({min: 1}).withMessage('Invalid page number'),
-		query('pageSize').isInt({min: 1, max:100}).withMessage('Invalid page size')
-	];
-}
-
 router.get('/public', pageInfoValidator(), validateResult ,getPublicJobs);
+// IMP: have this before public/:id otherwise it will be treated as public/:id
+router.get('/public/recommendations', getPublicJobRecommendations);
 router.get('/public/:id', idValidator(), validateResult, getPublicJob);
 
 
 router.get('/private', pageInfoValidator(), validateResult, getPrivateJobs);
+// IMP: have this before private/:id otherwise it will be treated as private/:id
 router.get('/private/recommendations', getPrivateJobRecommendations);
 router.get('/private/:id', idValidator(), validateResult, getPrivateJob);
 

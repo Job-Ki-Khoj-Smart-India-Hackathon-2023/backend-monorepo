@@ -6,7 +6,6 @@ from dotenv import load_dotenv, find_dotenv
 from generated.job_service_pb2_grpc import add_JobServiceServicer_to_server 
 from controllers.job_controller import JobController
 
-
 env_path = find_dotenv('.env')
 load_dotenv(env_path)
 

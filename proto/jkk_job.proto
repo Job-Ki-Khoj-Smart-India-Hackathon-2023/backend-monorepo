@@ -1,0 +1,14 @@
+syntax = "proto3";
+import "common.proto";
+
+message JKKJob{
+	string mongo_id = 1;		
+	string job_title = 3;
+	string description = 4;
+	Location location = 5;
+}
+
+message JKKJobList{
+	repeated string ids = 1;
+}
+

@@ -6,8 +6,6 @@ import {
 	IDistrict,
 	IJobType,
 	IJobTitle,
-	IPublicJob,
-	IPrivateJob 
 } from './pgrkam/types';
 import {
 	getPrivateJobs,
@@ -19,8 +17,6 @@ import {
 	getJobTitles
 
 } from './pgrkam/api';
-import PublicJob from '../models/pgrkam-models/PublicJob';	
-import PrivateJob from '../models/pgrkam-models/PrivateJob';
 import Experience from '../models/pgrkam-models/Experience';
 import Qualification from '../models/pgrkam-models/Qualification';
 import State from '../models/pgrkam-models/State';
@@ -30,7 +26,6 @@ import JobTitle from '../models/pgrkam-models/JobTitle';
 import { savePGRKAMPrivateJobs, savePGRKAMPublicJobs } from './services/redis-mongo-service';
 import { getCoordinatesFromText } from './maps/google-maps';
 
-// TODO: Create a layer for fetching the location and then adding the jobs for which we found the location to redis
 async function updateJobs(req: Request, res: Response){
 	const { type } = req.query as { type: 'public' | 'private' };
 	if(type === 'public'){
@@ -41,7 +36,6 @@ async function updateJobs(req: Request, res: Response){
 	}
 
 	const jobs = await getPrivateJobs();
-	//const jobs: IPrivateJob[] = []; FOR TESTING PURPOSE TO SEE WHETHER THE JOBS ARE UPDATED ON CACHE AND DB IN SYNC
 	await savePGRKAMPrivateJobs(jobs);
 		
 	res.status(200).json({ message: 'Done' });
@@ -130,27 +124,7 @@ async function updateFilterValues(req: Request, res: Response){
 							}
 						})
 					)
-					//console.log(`newDistrictsWithLocation`, JSON.stringify(newDistrictsWithLocation, null, 2));
-
 					await District.insertMany(newDistrictsWithLocation);
-					/*
-					const districtBulkWrite: any[] = [];
-					stateAndDistrict
-						.dist
-						.forEach((district: IDistrict)=>{
-							districtBulkWrite.push({
-								updateOne: {
-									filter: { id: district.id },
-									update: {
-										...district,
-										stateId: state._id
-									},
-									upsert: true
-								}
-							});
-						});
-					await District.bulkWrite(districtBulkWrite);
-					*/
 				}
 			);
 			await Promise.all(stateDistrictPromises);

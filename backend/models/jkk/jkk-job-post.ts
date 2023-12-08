@@ -2,7 +2,7 @@ import { Schema, Types, model } from "mongoose";
 import pointSchema from "../pgrkam-models/common/PointSchema";
 
 
-const jobPostSchema = new Schema({
+const jkkJobPostSchema = new Schema({
 	metadata: {
 		location: {
 			type: pointSchema,
@@ -31,7 +31,7 @@ const jobPostSchema = new Schema({
 	},
 	companyName: {
 		type: String,
-		required: true
+		required: false
 	},
 	jobInfo: {
 		title: {
@@ -101,8 +101,8 @@ const jobPostSchema = new Schema({
 	}
 }, {timestamps: true});
 
-jobPostSchema.index({'metadata.location': '2dsphere'});
+jkkJobPostSchema.index({'metadata.location': '2dsphere'});
 
-const jobPostModel = model('JobPost', jobPostSchema);
+const jkkJobPostModel = model('JKKJobPost', jkkJobPostSchema);
 
-export default jobPostModel;
+export default jkkJobPostModel;

@@ -3,6 +3,7 @@ import { Empty } from '../../../generated/common';
 import PrivateJob from "../../../models/pgrkam-models/PrivateJob";
 import PublicJob from "../../../models/pgrkam-models/PublicJob";
 import { Request, Response } from "express";
+import ApiError from '../../../helpers/models/api-error';
 
 async function getPrivateJob(req: Request, res: Response){
 	const id = req.params.id;
@@ -41,14 +42,18 @@ async function getPublicJobs(req: Request, res: Response){
 	return res.status(200).json({jobs});
 }
 
+async function getPublicJobRecommendations(_: Request, res: Response){
+	throw new ApiError(500, "not implemented");
+}
+
 async function getPrivateJobRecommendations(_: Request, res: Response){
 	try{
-	mlClient.GetPGRKAMPrivateJobs(new Empty(), (error, response)=>{
-		if(error) {
-			return res.status(500).send({message: error.message});
-		}
-		res.status(200).send({jobs: response?.toObject});
-	});
+		mlClient.GetPGRKAMPrivateJobs(new Empty(), (error, response)=>{
+			if(error) {
+				return res.status(500).send({message: error.message});
+			}
+			res.status(200).send({jobs: response?.toObject});
+		});
 	}catch(error){
 		console.log(error);
 	}
@@ -59,5 +64,6 @@ export {
 	getPrivateJobs,
 	getPublicJob,
 	getPublicJobs,
-	getPrivateJobRecommendations
+	getPrivateJobRecommendations,
+	getPublicJobRecommendations
 }

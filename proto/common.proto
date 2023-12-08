@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+
+message Empty{}
+
+
+message Response{
+	bool ok = 1;
+	string message = 2;
+}
+
+message Id{
+	string id = 1;
+}
+
+message Location{
+	double latitude = 1;
+	double longitude = 2;
+}
+

@@ -1,0 +1,16 @@
+syntax = "proto3";
+import "common.proto";
+
+
+message PGRKAMPrivateJob{
+	string mongo_id = 1;		
+	string org_name = 2;
+	string job_title = 3;
+	string description = 4;
+	Location location = 5;
+}
+
+message PGRKAMPrivateJobList{
+	repeated string ids = 1;
+}
+

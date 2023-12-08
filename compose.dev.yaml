@@ -21,32 +21,45 @@ services:
       - ./docker/redis_data:/data
 
   backend:
+    restart: always
     build:
       context: ./backend
+      dockerfile: Dockerfile.dev
     ports: 
       - "3000:3000"
     networks:
       - network
-    env_file: ./backend/.env
-    environment:
-      REDIS_URL: redis://redis:6379
-      MONGO_URI: mongodb://mongo:27017/sih
-      ML_SERVICE_URI: ml:50051
+    env_file: ./backend/.env.dev
     depends_on:
       - mongo
       - redis
       - ml
+        #volumes:
+      #- ./backend:/app
+      #- node_modules:/app/node_modules
+    develop:
+      watch:
+        - path: ./backend
+          action: sync
 
   ml:
     build:
       context: ./ml
+      dockerfile: Dockerfile.dev
     env_file: ./ml/.env.dev
     ports:
       - "50051:50051"
     networks:
       - network
-  
+        #volumes:
+      #- ./ml:/ml
+    develop:
+      watch:
+        - path: ./ml
+          action: sync
 
 networks:
-  network:
+  network: {}
 
+volumes:
+  node_modules: {}

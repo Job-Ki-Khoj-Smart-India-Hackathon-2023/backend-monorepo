@@ -1,0 +1,21 @@
+syntax = "proto3";
+import "common.proto";
+import "pgrkam_private_job.proto";
+import "jkk_job.proto";
+
+
+service JobService{
+
+	// PGRKAM Private Job rpc's
+	rpc CreatePGRKAMPrivateJob(PGRKAMPrivateJob) returns (Response) {}
+	rpc GetPGRKAMPrivateJobs(Empty) returns (PGRKAMPrivateJobList) {}
+	rpc UpdatePGRKAMPrivateJob(PGRKAMPrivateJob) returns (Response) {}
+	rpc DeletePGRKAMPrivateJob(Id) returns (Response) {}
+
+	// JKK Private Job rpc's
+	rpc CreateJKKJob(JKKJob) returns (Response) {}
+	rpc GetJKKJobs(Empty) returns (JKKJobList) {}
+	rpc UpdateJKKJob(JKKJob) returns (Response) {}
+	rpc DeleteJKKJob(Id) returns (Response) {}
+
+}

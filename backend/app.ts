@@ -1,8 +1,14 @@
+import dotenv from 'dotenv';
+console.log(`Node env = ${process.env.NODE_ENV}`);
+const envFile = process.env.NODE_ENV === 'production'? '.env.prod' : '.env.dev';
+const envPath = `./${envFile}`;
+console.log(`envPath = ${envPath}`);
+dotenv.config({path: envPath});
+
 import mongoose from 'mongoose';
 import 'express-async-errors';
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
 import errorHandler from './middlewares/error-handler';
 import userRouter from './routes/user/user-routes';
 import cronRouter from './routes/cron-routes';
@@ -10,8 +16,6 @@ import jobsRouter from './routes/jobs-routes';
 import initializeSocketConnection from './server/socket';
 import './helpers/cloudinary-config';
 
-
-dotenv.config();
 const MONGO_URI = process.env.NODE_ENV === 'production'? process.env.PROD_MONGO_URI : process.env.MONGO_URI;
 
 if(!MONGO_URI){

@@ -4,7 +4,6 @@ from generated.common_pb2 import Response
 
 
 class JKKJobController():
-
     def CreateJKKJob(self):
         return Response(ok=True, message='Job created successfully')
 
@@ -16,5 +15,3 @@ class JKKJobController():
 
     def DeleteJKKJob(self):
         return Response(ok=True, message='Job deleted successfully')
-
-

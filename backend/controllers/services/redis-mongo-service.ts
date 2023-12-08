@@ -1,13 +1,14 @@
+/**
+ * This file contains logic for synchronizing data between database and cache
+ * */
+
 import {
 	IPublicJob,
 	IPrivateJob
 } from '../pgrkam/types';
 import PrivateJob from '../../models/pgrkam-models/PrivateJob';
-import redisClient from '../../clients/redis-client';
 import District from '../../models/pgrkam-models/District';
-import RedisKeyManager from '../../helpers/redis-key-manager';
 import { redisManager } from '../../clients/redis-client';
-import shortUUID from 'short-uuid';
 import PublicJob from '../../models/pgrkam-models/PublicJob';
 import { JobType } from '../../server/job-recommender';
 import mongoose from 'mongoose';
