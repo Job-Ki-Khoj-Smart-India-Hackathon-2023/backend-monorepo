@@ -7,6 +7,9 @@ vars:
   COMPOSE_DEV_FILE: compose.dev.yaml
 
 tasks:
+  clean:
+    cmds:
+      - docker compose -f {{.COMPOSE_DEV_FILE}} down
   build:dev:
     cmds:
       - docker compose -f {{.COMPOSE_DEV_FILE}} build 
@@ -17,7 +20,7 @@ tasks:
 
   run:dev:
     cmds:
-      - docker compose -f {{.COMPOSE_DEV_FILE}} watch
+      - docker compose -f {{.COMPOSE_DEV_FILE}} up #watch
   
   build:run:dev:
     cmds:

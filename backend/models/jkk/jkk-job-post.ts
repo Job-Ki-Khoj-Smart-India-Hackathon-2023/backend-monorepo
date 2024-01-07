@@ -6,10 +6,7 @@ const jkkJobPostSchema = new Schema({
 	metadata: {
 		location: {
 			type: pointSchema,
-			required: true
-		},
-		redisGeoKey: {
-			type: String
+			//required: true
 		},
 		status: {
 			type: String,
@@ -22,11 +19,6 @@ const jkkJobPostSchema = new Schema({
 			type: Types.ObjectId,
 			required: true,
 			ref: 'User'
-		},
-		userInfoId: {
-			type: Types.ObjectId,
-			required: true,
-			ref: 'EmployerInfo'
 		}
 	},
 	companyName: {

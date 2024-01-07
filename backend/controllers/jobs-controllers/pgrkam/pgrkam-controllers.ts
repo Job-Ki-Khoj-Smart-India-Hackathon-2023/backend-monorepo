@@ -52,10 +52,10 @@ async function getPrivateJobRecommendations(_: Request, res: Response){
 			if(error) {
 				return res.status(500).send({message: error.message});
 			}
-			res.status(200).send({jobs: response?.toObject});
+			res.status(200).send({jobs: response?.toObject()});
 		});
 	}catch(error){
-		console.log(error);
+		res.status(500).send({message: error})
 	}
 }
 

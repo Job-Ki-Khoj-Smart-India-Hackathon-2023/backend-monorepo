@@ -22,8 +22,8 @@
   "version": "1.0.0",
   "main": "app.ts",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon app.ts",
-    "start": "NODE_ENV=production node ./dist/app.js",
+    "dev": "nodemon app.ts",
+    "start": "node ./dist/app.js",
     "build": "tsc -p .",
     "test": "jest --detectOpenHandles --verbose"
   },

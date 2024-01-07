@@ -1,7 +1,0 @@
-{
-  "ignore": ["**/*.test.ts", "**/*.spec.ts", "node_modules"],
-  "watch": ["*.ts"],
-  "execMap": {
-    "ts": "node --inspect=0.0.0.0:9229 --no-lazy -r ts-node/register"
-  }
-}

@@ -13,9 +13,11 @@ async function revoke(req: UserRequest, res: Response){
 async function getApplications(req: UserRequest, res: Response){
 	throw new ApiError(500, "not implemented");
 }
+
 async function getApplicationDetails(req:	 UserRequest, res: Response){
 	throw new ApiError(500, "not implemented");
 }
+
 export {
 	submit,
 	revoke,

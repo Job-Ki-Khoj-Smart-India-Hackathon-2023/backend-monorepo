@@ -4,8 +4,8 @@ services:
   mongo:
     image: mongo
     restart: always
-    ports: 
-      - "27017:27017"
+      #ports: 
+      #  - "27017:27017"
     networks:
       - network
     volumes:
@@ -34,13 +34,11 @@ services:
       - mongo
       - redis
       - ml
-        #volumes:
-      #- ./backend:/app
-      #- node_modules:/app/node_modules
     develop:
       watch:
-        - path: ./backend
-          action: sync
+        - action: rebuild
+          path: ./backend
+          target: /app
 
   ml:
     build:
@@ -51,12 +49,6 @@ services:
       - "50051:50051"
     networks:
       - network
-        #volumes:
-      #- ./ml:/ml
-    develop:
-      watch:
-        - path: ./ml
-          action: sync
 
 networks:
   network: {}

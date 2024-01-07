@@ -16,6 +16,7 @@ import jobsRouter from './routes/jobs-routes';
 import initializeSocketConnection from './server/socket';
 import './helpers/cloudinary-config';
 
+console.log(`NODE_ENV = ${process.env.NODE_ENV} and changes implemented and hello world from anurag`);
 const MONGO_URI = process.env.NODE_ENV === 'production'? process.env.PROD_MONGO_URI : process.env.MONGO_URI;
 
 if(!MONGO_URI){
