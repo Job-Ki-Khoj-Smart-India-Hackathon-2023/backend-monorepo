@@ -1,6 +1,58 @@
 import {query, body, param } from "express-validator";
 
 
+function validateJobInfo() {
+	return [
+		body('jobInfo').isObject().withMessage('Missing job info'),
+		body('jobInfo.title').isString().withMessage('Job title should be of string type'),
+		body('jobInfo.description').isString().withMessage('Description should be of string type'),
+		body('jobInfo.genderPreference')
+			.optional()
+			.isString()
+			.isIn(['Male', 'Female', 'Other'])
+			.withMessage('Invalid gender preference'),
+		body('jobInfo.education').optional().isString().withMessage('Education should be of string type'),
+		body('jobInfo.vacancies')
+			.isInt({ min: 1 })
+			.withMessage('Vacancies must be an integer greater than 0'),
+		body('jobInfo.salary').isObject().withMessage('salary should be an object'),
+		body('jobInfo.salary.min')
+			.optional()
+			.isInt({ min: 1 })
+			.withMessage('Minimum salary must be an integer greater than 0'),
+		body('jobInfo.salary.max')
+			.optional()
+			.isInt({ min: 1 })
+			.withMessage('Maximum salary must be an integer greater than 0'),
+		body('jobInfo.responsibilities')
+			.isArray({ min: 1 })
+			.withMessage('Responsibilities should be a non-empty array of strings'),
+		body('jobInfo.requiredSkills')
+			.isArray({ min: 1 })
+			.withMessage('Required skills should be a non-empty array of strings'),
+	];
+}
+
+
+function validateOpenJKKJobPost(){
+	return [
+		body('companyName').isString().isLength({max: 20}).withMessage('Company name should be a string'),
+		body('location').isObject().withMessage('Missing location'),
+		body('location.lat').isFloat().withMessage('Latitude(lat) should be a float value'),
+		body('location.lng').isFloat().withMessage('Longitude(lng) should be a float value'),
+		...validateJobInfo(),
+		body('tags')
+		.isArray()
+		.withMessage('tags must be a list of strings')
+		.custom((tags)=>{
+			if(!tags.every((tag:any)=>typeof tag === 'string')){
+				throw new Error("All tags must be string");
+			}
+			return true;
+		})
+	];
+}
+
 function validateMandatoryPersonalInfo(){
 	return [
 		body('personalInfo').isObject().withMessage('Personal info must be an object'),
@@ -9,7 +61,7 @@ function validateMandatoryPersonalInfo(){
 		body('personalInfo.dob').isISO8601().withMessage('Invalid ISO8601 date of birth').custom((dob: string)=> {if(new Date(dob) < new Date()) return true; else throw new Error('You will born after today?')}),
 		body('personalInfo.nationality').isIn(['Indian', 'Other']),
 		body('personalInfo.gender').isIn(['Male','Female','Other']),
-	]
+	];
 }
 
 function validateMandatoryContactInfo(){
@@ -120,5 +172,7 @@ export {
 	validateSingleEducationInfo,
 	validateSingleExperienceInfo,
 	idValidator,
-	pageInfoValidator
+	pageInfoValidator,
+	validateJobInfo,
+	validateOpenJKKJobPost
 }

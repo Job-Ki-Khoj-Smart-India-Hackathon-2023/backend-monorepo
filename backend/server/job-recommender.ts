@@ -1,5 +1,4 @@
-import redisClient, { redisManager } from "../clients/redis-client";
-//import RedisKeyManager from "../helpers/redis-key-manager";
+import { redisManager } from "../clients/redis-client";
 import { isStringJsonParseable } from "./utils";
 
 type GeoLocation = {
@@ -14,10 +13,6 @@ enum JobType{
 
 async function getNearbyJobs(geoLocation: GeoLocation) {
 	const {lng, lat, range} = geoLocation;
-	//const redisKey = RedisKeyManager.getGeoSpatialJobPostKey();
-	//const redisGeoKeysOfJobPosts = await redisClient.geoSearch(redisKey, {longitude: lng, latitude: lat}, {radius: range, unit: 'km'});
-	//console.log('total job posts found: ', redisGeoKeysOfJobPosts.length);
-	//const jobPostsJSON = await Promise.all(redisGeoKeysOfJobPosts.map(async id=> await redisClient.get(RedisKeyManager.getGeoSpatialJobPostContentKey(id))));
 	const jobPostsJSON = await redisManager.getContentJobPosts(
 		await redisManager.getGeoJobPostIds(lat, lng, range)
 	);

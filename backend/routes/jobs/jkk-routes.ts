@@ -13,7 +13,9 @@ import {
 import { open, updateStatus, getJobs, getJobDetails} from "../../controllers/jobs-controllers/jkk/jkk-controllers";
 import jobseekerMiddleware from "../../middlewares/jobseeker-middleware";
 import employerMiddleware from "../../middlewares/employer-middleware";
-import { pageInfoValidator } from "../utils/validation-chains";
+import { pageInfoValidator, validateOpenJKKJobPost } from "../utils/validation-chains";
+import validateResult from "../../middlewares/validate-result";
+import { body, param, query} from "express-validator";
 
 const router = Router();
 
@@ -26,11 +28,21 @@ const router = Router();
 router.post(
 	'/',
 	employerMiddleware,
+	validateOpenJKKJobPost(),
+	validateResult,
 	open
 );
 router.patch(
-	'/', 
+	'/:jkkJobPostId', 
 	employerMiddleware,
+	[
+		param('jkkJobPostId').isMongoId().withMessage('Invalid job post id'),
+		query('status')
+			.isString().withMessage('status must be a string')
+			.notEmpty().withMessage('status must be a valid string')
+			.isIn(['under-review', 'interviewing', 'closed']).withMessage('Invalid status')
+	],
+	validateResult,
 	updateStatus
 );
 router.get(
