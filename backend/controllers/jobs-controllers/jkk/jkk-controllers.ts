@@ -5,6 +5,13 @@ import JkkJobPostModel from "../../../models/jkk/jkk-job-post";
 import { JobType } from "../../../server/job-recommender";
 import { redisManager } from "../../../clients/redis-client";
 
+const JKKJobStatus = {
+	'open': 0,
+	'under-review': 1,
+	'interviewing': 2,
+	'closed': 3
+};
+Object.freeze(JKKJobStatus);
 
 async function open(req: UserRequest, res: Response){
 	const {companyName, location, jobInfo, tags} = req.body as {
@@ -78,11 +85,7 @@ async function open(req: UserRequest, res: Response){
 }
 
 /**
-*
-*
-* TODO check for errors
-* previously giving errors when the userid didn't matched jobposter i.e. employers id
-* hence was unable to update
+* TODO - Remove redis content and geo key on any status update as application acceptance will be closed by then
 */
 async function updateStatus(req: UserRequest, res: Response){
 	const userId = req.user?._id;
@@ -105,8 +108,12 @@ async function updateStatus(req: UserRequest, res: Response){
 
 	console.log('current userid =', userId);
 	console.log('post userid =', jkkJobPost.employer?.userId);
-	if(jkkJobPost.employer?.userId != userId){
+	if(jkkJobPost.employer?.userId.toString() !== userId.toString()){
 		throw new ApiError(401, 'Unauthorized');
+	}
+
+	if(JKKJobStatus[status] <= JKKJobStatus[jkkJobPost.metadata!.status]){
+		throw new ApiError(400, 'Status not allowed');
 	}
 
 	await JkkJobPostModel.updateOne({_id: jkkJobPost._id}, {
@@ -117,13 +124,19 @@ async function updateStatus(req: UserRequest, res: Response){
 	return res.status(200).send({"message": "Job Post updated successfully!"});
 }
 
+async function getJobDetails(req: UserRequest, res: Response){
+	const { jkkJobPostId } = req.params as {jkkJobPostId: string};
+	const jkkJobPost = await JkkJobPostModel.findOne({_id: jkkJobPostId});
+	if(!jkkJobPost){
+		throw new ApiError(404, 'Job Post not found');
+	}
+	return res.status(200).send(jkkJobPost);
+}
+
 async function getJobs(req: UserRequest, res: Response){
 	throw new ApiError(500, "not implemented");
 }
 
-async function getJobDetails(req: UserRequest, res: Response){
-	throw new ApiError(500, "not implemented");
-}
 export {
 	open,
 	updateStatus,

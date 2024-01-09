@@ -50,9 +50,12 @@ router.get(
 	pageInfoValidator,
 	getJobs
 );
-router.get(
+router.get( 
 	'/:jkkJobPostId',
-	pageInfoValidator,
+	[
+		param('jkkJobPostId').isMongoId().withMessage('Invalid job post id')
+	],
+	validateResult,
 	getJobDetails
 );
 
