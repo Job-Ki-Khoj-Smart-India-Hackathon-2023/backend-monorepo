@@ -138,10 +138,29 @@ async function getJobDetails(req: UserRequest, res: Response){
 	return res.status(200).send(jkkJobPost);
 }
 
-async function getJobs(req: UserRequest, res: Response){
-	let { page, pageSize, sort } = req.query as unknown as {page: number, pageSize:number, sort: 'asc'|'dsc'};
+async function getOpenJobs(req: UserRequest, res: Response){
+	let { page, pageSize, sort } = req.query as unknown as {
+		page: number,
+		pageSize:number,
+		sort: 'asc'|'dsc'
+	};
 	const jkkJobPosts = await JkkJobPostModel
-		.find()
+		.find({'metadata.status': 'open'})
+		.skip(page*pageSize)
+		.limit(pageSize)
+		.sort({updatedAt: (sort==='asc')?1:-1});
+	return res.status(200).send(jkkJobPosts);
+}
+
+async function getEmployerJobs(req: UserRequest, res: Response){
+	const userId = req.user!._id!;
+	let { page, pageSize, sort } = req.query as unknown as {
+		page: number,
+		pageSize: number,
+		sort: 'asc' | 'dsc'
+	};
+	const jkkJobPosts = await JkkJobPostModel
+		.find({'employer.userId': userId})
 		.skip(page*pageSize)
 		.limit(pageSize)
 		.sort({updatedAt: (sort==='asc')?1:-1});
@@ -151,6 +170,7 @@ async function getJobs(req: UserRequest, res: Response){
 export {
 	open,
 	updateStatus,
-	getJobs,
-	getJobDetails
+	getOpenJobs,
+	getJobDetails,
+	getEmployerJobs
 }

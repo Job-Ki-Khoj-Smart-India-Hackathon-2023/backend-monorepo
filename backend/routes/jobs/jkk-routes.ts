@@ -10,7 +10,13 @@ import {
 	getApplications,
 	getApplicationDetails,
 } from "../../controllers/jobs-controllers/jkk/application-controllers";
-import { open, updateStatus, getJobs, getJobDetails} from "../../controllers/jobs-controllers/jkk/jkk-controllers";
+import { 
+	open,
+	updateStatus,
+	getOpenJobs,
+	getJobDetails,
+	getEmployerJobs
+} from "../../controllers/jobs-controllers/jkk/jkk-controllers";
 import jobseekerMiddleware from "../../middlewares/jobseeker-middleware";
 import employerMiddleware from "../../middlewares/employer-middleware";
 import { pageInfoValidator, validateOpenJKKJobPost } from "../utils/validation-chains";
@@ -18,11 +24,6 @@ import validateResult from "../../middlewares/validate-result";
 import { body, param, query} from "express-validator";
 
 const router = Router();
-
-/**
- * TODO 
- * add json validation for each route
- */
 
 /**JKK Job routes*/
 router.post(
@@ -53,8 +54,21 @@ router.get(
 		query('sort').default('dsc').isIn(['dsc', 'asc'])
 	],
 	validateResult,
-	getJobs
+	getOpenJobs
 );
+
+router.get(
+	'/mine',
+	[
+		query('page').default(0).isInt({min:0}),
+		query('pageSize').default(10).isInt({min:1, max:50}),
+		query('sort').default('dsc').isIn(['dsc', 'asc'])
+	],
+	validateResult,
+	employerMiddleware,
+	getEmployerJobs
+);
+
 router.get( 
 	'/:jkkJobPostId',
 	[
@@ -63,6 +77,8 @@ router.get(
 	validateResult,
 	getJobDetails
 );
+
+
 
 
 /**Application routes*/
