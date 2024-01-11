@@ -163,7 +163,6 @@ function pageInfoValidator(){
 	];
 }
 
-
 export {
 	validateMandatoryPersonalInfo,
 	validateMandatoryContactInfo,

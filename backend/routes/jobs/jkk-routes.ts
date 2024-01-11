@@ -78,12 +78,13 @@ router.get(
 	getJobDetails
 );
 
-
-
-
 /**Application routes*/
 router.post(
 	'/:jkkJobPostId/applications',
+	[
+		param('jkkJobPostId').isMongoId().withMessage('Invalid Job Post id'),
+	],
+	validateResult,
 	jobseekerMiddleware,
 	submit
 );
