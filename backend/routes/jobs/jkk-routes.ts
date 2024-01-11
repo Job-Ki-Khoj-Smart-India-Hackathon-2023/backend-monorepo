@@ -47,7 +47,12 @@ router.patch(
 );
 router.get(
 	'/',
-	pageInfoValidator,
+	[
+		query('page').default(0).isInt({min:0}),
+		query('pageSize').default(10).isInt({min:1, max:50}),
+		query('sort').default('dsc').isIn(['dsc', 'asc'])
+	],
+	validateResult,
 	getJobs
 );
 router.get( 

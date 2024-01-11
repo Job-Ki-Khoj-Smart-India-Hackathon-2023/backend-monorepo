@@ -2,5 +2,5 @@
 
 
 ## CheckList
-- [ ] Complete Job ki khoj job post controllers
+- [x] Complete Job ki khoj job post controllers
 - [ ] Complete Job ki khoj job application controllers

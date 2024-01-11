@@ -84,9 +84,6 @@ async function open(req: UserRequest, res: Response){
 	return res.status(200).send({"message": "Job Post opened successfully!"});
 }
 
-/**
-* TODO - Remove redis content and geo key on any status update as application acceptance will be closed by then
-*/
 async function updateStatus(req: UserRequest, res: Response){
 	const userId = req.user?._id;
 	if(!userId){
@@ -116,6 +113,14 @@ async function updateStatus(req: UserRequest, res: Response){
 		throw new ApiError(400, 'Status not allowed');
 	}
 
+	if(status === 'closed'){
+		await Promise.all([
+			redisManager.delGeoJobPost(jkkJobPostId),
+			redisManager.delContentJobPost(jkkJobPostId)
+		]);
+		console.log('jkk job post is removed from redis');
+	}
+
 	await JkkJobPostModel.updateOne({_id: jkkJobPost._id}, {
 		$set: {
 			'metadata.status': status
@@ -134,7 +139,13 @@ async function getJobDetails(req: UserRequest, res: Response){
 }
 
 async function getJobs(req: UserRequest, res: Response){
-	throw new ApiError(500, "not implemented");
+	let { page, pageSize, sort } = req.query as unknown as {page: number, pageSize:number, sort: 'asc'|'dsc'};
+	const jkkJobPosts = await JkkJobPostModel
+		.find()
+		.skip(page*pageSize)
+		.limit(pageSize)
+		.sort({updatedAt: (sort==='asc')?1:-1});
+	return res.status(200).send(jkkJobPosts);
 }
 
 export {
