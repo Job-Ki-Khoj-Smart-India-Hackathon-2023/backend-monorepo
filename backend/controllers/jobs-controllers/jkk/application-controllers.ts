@@ -7,7 +7,7 @@ import JkkJobPostModel from "../../../models/jkk/jkk-job-post";
 
 
 /**
-* Can only submit when application is open
+* Can only submit when application is open (only for jobseeker)
 */
 async function submit(req: UserRequest, res: Response){
 	const {jkkJobPostId} = req.params as {jkkJobPostId: string};
@@ -54,16 +54,83 @@ async function submit(req: UserRequest, res: Response){
 	return res.status(200).send({message: "Job Application submitted successfully!"});
 }
 
+/* *
+	* Remove the submitted application ( only for jobseeker )
+	*/
 async function revoke(req: UserRequest, res: Response){
-	throw new ApiError(500, "not implemented");
+	const userId = req.user!._id;
+	const {jkkJobPostId} = req.params as {jkkJobPostId: string};
+
+	const jkkJobApplication = await JobApplicationModel.findOne({
+		jobseekerUserId: userId,
+		jkkJobPostId
+	});
+	if(!jkkJobApplication){
+		throw new ApiError(404, "Application not found");
+	}
+	await jkkJobApplication.deleteOne();
+	return res.status(200).send({message: "Job Application redacted succesfully"});
 }
 
+/* *
+	* Get applications under a particular job post
+	* only accessible to the employer who posted that job post
+	*/
 async function getApplications(req: UserRequest, res: Response){
-	throw new ApiError(500, "not implemented");
+	const userId = req.user!._id;
+	const {jkkJobPostId} = req.params as {jkkJobPostId: string};
+	const {page, pageSize, sort} = req.query as unknown as {
+		page: number,
+		pageSize: number,
+		sort: 'asc'|'dsc'
+	};
+
+	// Verify the job post belongs to requesting employer
+	const jkkJobPost = await JkkJobPostModel.findOne({
+		_id: jkkJobPostId,
+		'employer.userId': userId,
+	});
+	if(!jkkJobPost){
+		throw new ApiError(404, "Job post not found!");
+	}
+
+	// Fetch corresponding applications
+	const jkkJobApplications = await JobApplicationModel.find({
+		jkkJobPostId
+	}).skip(page*pageSize).limit(page).sort({createdAt: (sort=='asc')?1:-1});
+
+	return res.status(200).send(jkkJobApplications);
 }
 
+/* *
+	* Get particular application details 
+	* (only for employer)
+	*/
 async function getApplicationDetails(req:	 UserRequest, res: Response){
-	throw new ApiError(500, "not implemented");
+	const userId = req.user!._id;
+	const {jkkJobPostId, applicationId} = req.params as {
+		jkkJobPostId: string,
+		applicationId: string
+	};
+
+	// Verify the job post belongs to requesting employer
+	const jkkJobPost = await JkkJobPostModel.findOne({
+		_id: jkkJobPostId,
+		'employer.userId': userId,
+	});
+	if(!jkkJobPost){
+		throw new ApiError(404, "Job post not found!");
+	}
+
+	// Fetch job application 
+	const jkkJobApplication = await JobApplicationModel.findOne({
+		_id: applicationId,
+		jkkJobPostId
+	});
+	if(!jkkJobApplication){
+		throw new ApiError(404, "Job application not found");
+	}
+	return res.status(200).send(jkkJobApplication);
 }
 
 export {

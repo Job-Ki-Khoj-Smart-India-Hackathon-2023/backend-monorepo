@@ -8,11 +8,8 @@ import { getNearbyJobs, JobType } from './job-recommender';
 
 async function initializeSocketConnection(expressServer: Server){
 	const io = new SocketServer(expressServer, {});
-
 	const userServer = io.of('/user');
-
 	userServer.use(socketMiddleware);
-
 	userServer.on('connection', (socket: UserSocket)=>{
 		socket.on('coordinates', (data) =>{
 			//console.log("Coordinates received", data);
@@ -24,7 +21,6 @@ async function initializeSocketConnection(expressServer: Server){
 			//console.log(parsedData);
 			try{
 				z.object({lat: z.number(), lng: z.number(), range: z.number()}).parse(parsedData);
-
 				// Get job posts relevant to the user
 				getNearbyJobs(parsedData)
 				.then((jobs)=>{

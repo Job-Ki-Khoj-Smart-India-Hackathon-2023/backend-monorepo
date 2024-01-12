@@ -88,18 +88,37 @@ router.post(
 	jobseekerMiddleware,
 	submit
 );
+
 router.delete(
-	'/:jkkJobPostId/applications/:applicationId',
+	'/:jkkJobPostId/applications',
+	[
+		param('jkkJobPostId').isMongoId().withMessage('Invalid Job Post id'),
+	],
+	validateResult,
 	jobseekerMiddleware,
 	revoke
 );
-router.get( // for employers to see particular application
+
+router.get( // for employers to see applications under the employers job post
 	'/:jkkJobPostId/applications',
+	[
+		param('jkkJobPostId').isMongoId().withMessage('Invalid Job Post id'),
+		query('page').default(0).isInt({min:0}),
+		query('pageSize').default(10).isInt({min:1, max:50}),
+		query('sort').default('dsc').isIn(['dsc', 'asc'])
+	],
+	validateResult,
 	employerMiddleware,
 	getApplications,
 );
+
 router.get( // for employers to see particular application
 	'/:jkkJobPostId/applications/:applicationId',
+	[
+		param('jkkJobPostId').isMongoId().withMessage('Invalid Job Post id'),
+		param('applicationId').isMongoId().withMessage('Invalid Application id'),
+	],
+	validateResult,
 	employerMiddleware,
 	getApplicationDetails,
 );

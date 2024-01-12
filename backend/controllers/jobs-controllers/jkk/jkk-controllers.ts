@@ -138,6 +138,9 @@ async function getJobDetails(req: UserRequest, res: Response){
 	return res.status(200).send(jkkJobPost);
 }
 
+/* *
+	* For jobseekers to see the available jobs
+	*/
 async function getOpenJobs(req: UserRequest, res: Response){
 	let { page, pageSize, sort } = req.query as unknown as {
 		page: number,
