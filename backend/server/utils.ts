@@ -1,5 +1,9 @@
 
 
+/**
+*
+* TODO Remove this in future (unsafe)
+* */
 function isStringJsonParseable(data: string){
 	try{
 		JSON.parse(data);
@@ -7,7 +11,6 @@ function isStringJsonParseable(data: string){
 	}catch(err){
 		return false;
 	}
-
 }
 
 

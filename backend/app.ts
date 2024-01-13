@@ -13,7 +13,7 @@ import errorHandler from './middlewares/error-handler';
 import userRouter from './routes/user/user-routes';
 import cronRouter from './routes/cron-routes';
 import jobsRouter from './routes/jobs-routes';
-import initializeSocketConnection from './server/socket';
+import initializeSocketConnection from './server/server';
 import './helpers/cloudinary-config';
 
 console.log(`NODE_ENV = ${process.env.NODE_ENV} and changes implemented and hello world from anurag`);

@@ -9,11 +9,13 @@ if(!JWT_SECRET){
 
 async function authSocketMiddleware(socket: UserSocket, next: (err?: any) => void) {
 	const {authorization} = socket.request.headers;
+	console.log(`auth authorization header = ${authorization}`);
 	if(!authorization){
 		return next(new Error('Authorization header not found'));
 	}
 	
 	const token = authorization.split(' ')[1];
+	console.log(`received token = ${token}`);
 	if(!token){
 		return next(new Error('Token not found'));
 	}

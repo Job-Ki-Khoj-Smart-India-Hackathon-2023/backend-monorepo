@@ -1,6 +1,7 @@
 import { Socket } from 'socket.io';
+import { IUser } from '../../models/user-model';
 
 
 export default interface UserSocket extends Socket{
-	userId?: string;
+	user?: IUser;
 }
