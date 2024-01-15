@@ -1,8 +1,9 @@
 import { z } from 'zod';
 import { isStringJsonParseable } from '../../utils';
 import UserSocket from "../../../helpers/models/user-socket";
+import { redisManager } from '../../../clients/redis-client';
 
-function handleCoordinatesEvent(socket: UserSocket, data: any){
+async function handleCoordinatesEvent(socket: UserSocket, data: any){
 	console.log("Coordinates received", data);
 	if(typeof data == 'string' && !isStringJsonParseable(data)){
 		socket.emit('error', 'Invalid JSON format');
@@ -12,7 +13,11 @@ function handleCoordinatesEvent(socket: UserSocket, data: any){
 	console.log(parsedData);
 	try{
 		z.object({lat: z.number(), lng: z.number(), range: z.number()}).parse(parsedData);
-		socket.emit('nearby-jobseekers', "Not implemented yet!");
+
+		const nearbyJobseekerIds = await redisManager.getGeoJobseeker(parsedData.lat, parsedData.lng, parsedData.range);
+		const nearbyJobseekerInfo = await redisManager.getJobseekersInfoForNearbyEmployers(nearbyJobseekerIds);
+
+		socket.emit('nearby-jobseekers', nearbyJobseekerInfo);
 	}catch(err){
 		if(err instanceof z.ZodError){
 			socket.emit('error', err.issues);

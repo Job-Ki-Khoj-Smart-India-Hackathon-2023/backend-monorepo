@@ -3,6 +3,8 @@ import UserRequest from '../helpers/models/user-request';
 import jwt from 'jsonwebtoken';
 import ApiError from '../helpers/models/api-error';
 import User from '../models/user-model';
+import { redisManager } from '../clients/redis-client';
+import jobseekerInfoModel from '../models/jobseeker-info-model';
 
 const { JWT_SECRET } = process.env;
 if(!JWT_SECRET){
@@ -33,10 +35,19 @@ async function authMiddleware(req: UserRequest, _: Response, next: NextFunction)
 			throw new ApiError(401, 'Invalid token');
 		}
 		req.user = user;
-		next();
 	}catch(e){
-		throw new ApiError(401, 'Invalid token');
+		throw new ApiError(401, `Invalid token = ${e}`);
 	}
+	if(!(await redisManager.isJobseekerInfoForNearbyEmployersSet(req.user._id))){
+		console.log('setting jobseeker info for nearby employers');
+		const info = await jobseekerInfoModel.findOne({userId: req.user._id})
+		if(!info){
+			console.log('no jobseeker info found so not inserting in cache');
+		}else{
+			await redisManager.setJobseekerInfoForNearbyEmployers(req.user._id, info)
+		}
+	}
+	next();
 }
 
 export default authMiddleware;
