@@ -42,7 +42,38 @@
 
 ## Postman Documentation
 
-### HTTP - ![Job Ki Khoj API](https://raw.githubusercontent.com/Job-Ki-Khoj-Smart-India-Hackathon-2023/backend-monorepo/main/postman/Job%20Ki%20Khoj.postman_collection.json)
+### HTTP
+![Job Ki Khoj API](https://raw.githubusercontent.com/Job-Ki-Khoj-Smart-India-Hackathon-2023/backend-monorepo/main/postman/Job%20Ki%20Khoj.postman_collection.json)
+
+### Socket
+
+#### Jobseeker - Get nearby jobs 
+```env
+-> {{BASE_URL}}/jobseeker
+-> Input - event: "jobseeker:coordinates", message: { "lat": 0, "lng": 0, "range": 5 }
+-> Output - listener events
+   pgrkam-private-jobs - private jobs near specified location
+   jkk-jobs            - job ki khoj jobs near specified location
+   error               - error messages
+```
+
+#### Jobseeker - Update location
+```env
+-> {{BASE_URL}}/jobseeker
+-> Input - event: "jobseeker:update-location", message: { "lat": 0, "lng": 0, "range": 5 }
+-> Output - listener events
+   error               - error messages
+```
+
+#### Employer - Get nearby jobseekers
+```env
+-> {{BASE_URL}}/employer
+-> Input - event: "jobseeker:coordinates", message: { "lat": 0, "lng": 0, "range": 5 }
+-> Output - listener events
+   nearby-jobseekers   - jobseekers info nearby specified location
+   error               - error messages
+```
+
 
 ## Setup
 
