@@ -42,7 +42,7 @@
 
 ## Postman Documentation
 
-### HTTP - https://raw.githubusercontent.com/Job-Ki-Khoj-Smart-India-Hackathon-2023/backend-monorepo/main/postman/Job%20Ki%20Khoj.postman_collection.json
+### HTTP - ![Job Ki Khoj API](https://raw.githubusercontent.com/Job-Ki-Khoj-Smart-India-Hackathon-2023/backend-monorepo/main/postman/Job%20Ki%20Khoj.postman_collection.json)
 
 ## Setup
 
