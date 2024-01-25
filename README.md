@@ -42,7 +42,7 @@
 
 ## Postman Documentation
 
-**In Progress**
+### HTTP - https://documenter.getpostman.com/view/23149803/2s9YypENsw
 
 ## Setup
 
