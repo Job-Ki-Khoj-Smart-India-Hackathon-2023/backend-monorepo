@@ -22,6 +22,24 @@
    - Job seekers can create profiles showcasing their skills and experiences.
    - Job seekers can apply to jobs posted on the platform, providing a seamless user experience for both employers and job seekers.
 
+### Important Workflows/Diagrams
+
+#### 1. Backend Overview
+
+![Backend Overview Diagram](https://github.com/Job-Ki-Khoj-Smart-India-Hackathon-2023/backend-monorepo/assets/95378716/c3b7e2b0-d538-4017-bea2-9cf9f939e872)
+
+#### 2. PGRKAM Job Post Fetching Flow
+
+![PGRKAM Job Post Fetching Flow Diagram](https://github.com/Job-Ki-Khoj-Smart-India-Hackathon-2023/backend-monorepo/assets/95378716/1e076ad0-30a4-48dd-a75e-f80e50540e77)
+
+#### 3. Jobseeker Nearby Jobs Real-Time Updates Flow
+
+![Jobseeker Nearby Jobs Real-Time Updates Flow Diagram](https://github.com/Job-Ki-Khoj-Smart-India-Hackathon-2023/backend-monorepo/assets/95378716/51a31898-39d9-411a-9538-0db379dcbb55)
+
+#### 4. Employers GPS Interface Flow
+
+![Employers GPS Interface Flow Diagram](https://github.com/Job-Ki-Khoj-Smart-India-Hackathon-2023/backend-monorepo/assets/95378716/9bacb7b0-6f29-4a3b-83d1-684cb1e0fdb4)
+
 ## Setup
 
 To set up the project, follow these steps:
