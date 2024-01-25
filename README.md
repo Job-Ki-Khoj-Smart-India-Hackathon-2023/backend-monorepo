@@ -50,7 +50,7 @@
 #### Jobseeker - Get nearby jobs 
 ```env
 -> {{BASE_URL}}/jobseeker
--> Input - event: "jobseeker:coordinates", message: { "lat": 0, "lng": 0, "range": 5 }
+-> Input - event: "jobseeker:coordinates", message: { "lat": 0, "lng": 0, "range": 5 } # range in km
 -> Output - listener events
    pgrkam-private-jobs - private jobs near specified location
    jkk-jobs            - job ki khoj jobs near specified location
@@ -60,7 +60,7 @@
 #### Jobseeker - Update location
 ```env
 -> {{BASE_URL}}/jobseeker
--> Input - event: "jobseeker:update-location", message: { "lat": 0, "lng": 0, "range": 5 }
+-> Input - event: "jobseeker:update-location", message: { "lat": 0, "lng": 0, "range": 5 } # range in km
 -> Output - listener events
    error               - error messages
 ```
@@ -68,7 +68,7 @@
 #### Employer - Get nearby jobseekers
 ```env
 -> {{BASE_URL}}/employer
--> Input - event: "jobseeker:coordinates", message: { "lat": 0, "lng": 0, "range": 5 }
+-> Input - event: "jobseeker:coordinates", message: { "lat": 0, "lng": 0, "range": 5 } # range in km
 -> Output - listener events
    nearby-jobseekers   - jobseekers info nearby specified location
    error               - error messages
