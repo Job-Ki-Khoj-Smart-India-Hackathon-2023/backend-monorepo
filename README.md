@@ -40,6 +40,10 @@
 
 ![Employers GPS Interface Flow Diagram](https://github.com/Job-Ki-Khoj-Smart-India-Hackathon-2023/backend-monorepo/assets/95378716/9bacb7b0-6f29-4a3b-83d1-684cb1e0fdb4)
 
+## Postman Documentation
+
+**In Progress**
+
 ## Setup
 
 To set up the project, follow these steps:
