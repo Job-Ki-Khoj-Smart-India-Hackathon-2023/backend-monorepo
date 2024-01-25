@@ -1,4 +1,4 @@
-# Job Ki Khoj
+[Job Ki Khoj.postman_collection.json](https://github.com/Job-Ki-Khoj-Smart-India-Hackathon-2023/backend-monorepo/files/14050847/Job.Ki.Khoj.postman_collection.json)# Job Ki Khoj
 
 ## Overview
 
@@ -42,7 +42,7 @@
 
 ## Postman Documentation
 
-### HTTP - https://documenter.getpostman.com/view/23149803/2s9YypENsw
+### HTTP - https://raw.githubusercontent.com/Job-Ki-Khoj-Smart-India-Hackathon-2023/backend-monorepo/main/postman/Job%20Ki%20Khoj.postman_collection.json
 
 ## Setup
 
