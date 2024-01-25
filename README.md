@@ -56,7 +56,7 @@ To set up the project, follow these steps:
    MONGO_URI=mongodb://mongo:27017/sih
    REDIS_URL=redis://redis:6379
    JWT_SECRET=
-   PGRKAM_BASE_URL=
+   PGRKAM_BASE_URL=https://pgrkamadmin.pgrkam.com/m_api/v1/index.php
    MAPS_API_KEY=
    MAIL_SERVICE_API_KEY=
    CLOUDINARY_URL=
