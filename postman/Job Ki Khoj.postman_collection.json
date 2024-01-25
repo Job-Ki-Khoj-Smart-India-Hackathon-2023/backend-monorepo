@@ -1,0 +1,4304 @@
+{
+	"info": {
+		"_postman_id": "a98a1935-b03e-4b39-aec2-939b5e28ced2",
+		"name": "Job Ki Khoj",
+		"description": "Following are the api endpoints that are to be used to interact with the platform.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23149803"
+	},
+	"item": [
+		{
+			"name": "Cron Jobs",
+			"item": [
+				{
+					"name": "Update Jobs",
+					"item": [
+						{
+							"name": "Update Private Jobs",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_BASE_URL}}/cron/update-jobs?type=private&apiKey={{LOCAL_API_KEY}}",
+									"host": [
+										"{{LOCAL_BASE_URL}}"
+									],
+									"path": [
+										"cron",
+										"update-jobs"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "private"
+										},
+										{
+											"key": "apiKey",
+											"value": "{{LOCAL_API_KEY}}"
+										}
+									]
+								},
+								"description": "Updates private jobs."
+							},
+							"response": []
+						},
+						{
+							"name": "Update Govt Jobs",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_BASE_URL}}/cron/update-jobs?type=public&apiKey={{LOCAL_API_KEY}}",
+									"host": [
+										"{{LOCAL_BASE_URL}}"
+									],
+									"path": [
+										"cron",
+										"update-jobs"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "public"
+										},
+										{
+											"key": "apiKey",
+											"value": "{{LOCAL_API_KEY}}"
+										}
+									]
+								},
+								"description": "Updates public/govt. jobs."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update Filter Values",
+					"item": [
+						{
+							"name": "Update Experience",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_BASE_URL}}/cron/update-filter-values?type=experience&apiKey={{API_KEY}}",
+									"host": [
+										"{{LOCAL_BASE_URL}}"
+									],
+									"path": [
+										"cron",
+										"update-filter-values"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "experience"
+										},
+										{
+											"key": "apiKey",
+											"value": "{{API_KEY}}"
+										}
+									]
+								},
+								"description": "Updates experience values."
+							},
+							"response": []
+						},
+						{
+							"name": "Update Qualification",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_BASE_URL}}/cron/update-filter-values?type=qualification&apiKey={{API_KEY}}",
+									"host": [
+										"{{LOCAL_BASE_URL}}"
+									],
+									"path": [
+										"cron",
+										"update-filter-values"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "qualification"
+										},
+										{
+											"key": "apiKey",
+											"value": "{{API_KEY}}"
+										}
+									]
+								},
+								"description": "Updates qualification values."
+							},
+							"response": []
+						},
+						{
+							"name": "Update State District",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_BASE_URL}}/cron/update-filter-values?type=state-district&apiKey={{LOCAL_API_KEY}}",
+									"host": [
+										"{{LOCAL_BASE_URL}}"
+									],
+									"path": [
+										"cron",
+										"update-filter-values"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "state-district"
+										},
+										{
+											"key": "apiKey",
+											"value": "{{LOCAL_API_KEY}}"
+										}
+									]
+								},
+								"description": "Updates States and their respective districts."
+							},
+							"response": []
+						},
+						{
+							"name": "Update Job Titles",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_BASE_URL}}/cron/update-filter-values?type=job-title&apiKey={{API_KEY}}",
+									"host": [
+										"{{LOCAL_BASE_URL}}"
+									],
+									"path": [
+										"cron",
+										"update-filter-values"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "job-title"
+										},
+										{
+											"key": "apiKey",
+											"value": "{{API_KEY}}"
+										}
+									]
+								},
+								"description": "Updates job titles."
+							},
+							"response": []
+						},
+						{
+							"name": "Update Job Types",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_BASE_URL}}/cron/update-filter-values?type=job-type&apiKey={{API_KEY}}",
+									"host": [
+										"{{LOCAL_BASE_URL}}"
+									],
+									"path": [
+										"cron",
+										"update-filter-values"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "job-type"
+										},
+										{
+											"key": "apiKey",
+											"value": "{{API_KEY}}"
+										}
+									]
+								},
+								"description": "Updates job types."
+							},
+							"response": []
+						}
+					],
+					"description": "Updates filter values."
+				},
+				{
+					"name": "Generate API Key",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_BASE_URL}}/user/api-key",
+							"host": [
+								"{{LOCAL_BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"api-key"
+							]
+						},
+						"description": "Generates api key, that will be used to authenticate cron jobs request.\n\nOnly users with admin role can generate API key."
+					},
+					"response": []
+				}
+			],
+			"description": "Methods to update PGRKAM data on \"Job Ki Khoj\" platform."
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Sign Up",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"example@gmail.com\",\r\n    \"password\": \"helloworld\",\r\n    \"role\": \"jobseeker\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_BASE_URL}}/user/signup",
+									"host": [
+										"{{LOCAL_BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"signup"
+									]
+								},
+								"description": "User can signup on the platform using their email, and can choose the role either of \"jobseeker\" or \"employer\".\n\nOTP will be sent to the specified mail for verfication with a specific TTL."
+							},
+							"response": [
+								{
+									"name": "Sign Up",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\":\"Anurag Singh\",\r\n    \"email\":\"example@gmail.com\",\r\n    \"password\": \"helloworld\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/user/signup",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"user",
+												"signup"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "59"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3b-iptxNr1h9ueI6V1CNoeDD81nabk\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 26 Aug 2023 16:52:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Verification link sent to your email address!\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Verify OTP",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_BASE_URL}}/user/verify-otp/620165",
+									"host": [
+										"{{LOCAL_BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"verify-otp",
+										"620165"
+									]
+								},
+								"description": "OTP for forgot password or sign up can be verified using this endpoint."
+							},
+							"response": [
+								{
+									"name": "Verify Sign up",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/user/verify-otp/614960",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"user",
+												"verify-otp",
+												"614960"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "41"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"29-hTH+MHgoxsw9Ciw7cBvgCahTs7U\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 23 Sep 2023 19:57:26 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"User successfully signed up\"\n}"
+								},
+								{
+									"name": "Verify Forgot Password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/user/verify-otp/614932",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"user",
+												"verify-otp",
+												"614932"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "41"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"29-hTH+MHgoxsw9Ciw7cBvgCahTs7U\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 23 Sep 2023 19:57:26 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"User successfully signed up\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"codingsubs73@gmail.com\",\r\n    \"password\": \"newworld\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_BASE_URL}}/user/login",
+									"host": [
+										"{{LOCAL_BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"login"
+									]
+								},
+								"description": "Users can login using their creds."
+							},
+							"response": [
+								{
+									"name": "Incorrect password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"example@gmail.com\",\r\n    \"password\": \"what\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/user/login",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "28"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1c-GAUaDkbEnuwt3U4+7mmTRIkjj3Q\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 26 Aug 2023 17:06:03 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"Invalid password\"\n}"
+								},
+								{
+									"name": "Correct password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"example@gmail.com\",\r\n    \"password\": \"helloworld\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/user/login",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "188"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"bc-KVcif04hrp5PgaWDDck3e1Oz8No\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 26 Aug 2023 17:07:22 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMmUwNTkzMWZjYTQ3NTc1M2NjZmQiLCJpYXQiOjE2OTMwNjk2NDIsImV4cCI6MTY5MzkzMzY0Mn0.Igj2PRhWBXLTVu--VJZ2WgelovN5jkUdbVI-t10sf00\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Forgot Password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"helloworld@gmail.com\",\r\n    \"password\": \"newworld\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_BASE_URL}}/user/forgot-password",
+									"host": [
+										"{{LOCAL_BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"forgot-password"
+									]
+								},
+								"description": "Forgot password requires your mail and new password, after which OTP will be sent to the specified mail if the user corresponding to that mail exists on the platform."
+							},
+							"response": [
+								{
+									"name": "Forgot Password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"example@gmail.com\",\r\n    \"password\": \"helloworld123\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/user/forgot-password",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"user",
+												"forgot-password"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "59"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3b-iptxNr1h9ueI6V1CNoeDD81nabk\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 26 Aug 2023 17:09:34 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Verification link sent to your email address!\"\n}"
+								}
+							]
+						}
+					],
+					"description": "Authentication endpoints."
+				},
+				{
+					"name": "Profile",
+					"item": [
+						{
+							"name": "Jobseeker",
+							"item": [
+								{
+									"name": "Experience",
+									"item": [
+										{
+											"name": "Add Experience",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{TOKEN}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"experience\":{\r\n        \"jobTitle\": \"Database Architect\",\r\n        \"description\": \"Designed the architecture of database system for the company\",\r\n        \"company\": \"Data Solutions\",\r\n        \"location\": \"Remote\",\r\n        \"startDate\": \"2001-06-01T18:15:00.000Z\",\r\n        \"endDate\": \"2001-06-01T18:15:00.000Z\"\r\n    }\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker/experience",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"user",
+														"profile",
+														"jobseeker",
+														"experience"
+													]
+												},
+												"description": "Jobseekers can add their experience details using this endpoint."
+											},
+											"response": [
+												{
+													"name": "Add Experience",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n    \"experience\":{\r\n        \"jobTitle\": \"Database Architect\",\r\n        \"description\": \"Designed the architecture of database system for the company\",\r\n        \"company\": \"Data Solutions\",\r\n        \"location\": \"Remote\",\r\n        \"startDate\": \"2001-06-01T18:15:00.000Z\",\r\n        \"endDate\": \"2001-06-01T18:15:00.000Z\"\r\n    }\r\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker/experience",
+															"host": [
+																"{{LOCAL_BASE_URL}}"
+															],
+															"path": [
+																"user",
+																"profile",
+																"jobseeker",
+																"experience"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "43"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"2b-9ThIxKMgCYtB8lgHjjbCjHK7Tpk\""
+														},
+														{
+															"key": "Date",
+															"value": "Sat, 23 Sep 2023 23:21:56 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"message\": \"Experience added successfully\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Edit Experience",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{TOKEN}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": " {\r\n    \"experience\": {\r\n        \"jobTitle\": \"Frontend Developer\",\r\n        \"description\": \"<points related to experience>\",\r\n        \"company\": \"ABC Internationals\",\r\n        \"location\": \"Remote\",\r\n        \"startDate\": \"1996-06-01T18:15:00.000Z\",\r\n        \"endDate\": \"1996-06-01T18:15:00.000Z\"\r\n    }\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker/experience/651aa1794ae0a2f5b47184e4",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"user",
+														"profile",
+														"jobseeker",
+														"experience",
+														"651aa1794ae0a2f5b47184e4"
+													]
+												},
+												"description": "Jobseekers can edit previously added experience details."
+											},
+											"response": [
+												{
+													"name": "Update Experience",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": " {\r\n    \"experience\": {\r\n        \"jobTitle\": \"Frontend Developer\",\r\n        \"description\": \"<points related to experience>\",\r\n        \"company\": \"ABC Internationals\",\r\n        \"location\": \"Remote\",\r\n        \"startDate\": \"1996-06-01T18:15:00.000Z\",\r\n        \"endDate\": \"1996-06-01T18:15:00.000Z\"\r\n    }\r\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker/experience/651a6d822e5e9d656eb83d29",
+															"host": [
+																"{{LOCAL_BASE_URL}}"
+															],
+															"path": [
+																"user",
+																"profile",
+																"jobseeker",
+																"experience",
+																"651a6d822e5e9d656eb83d29"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "44"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"2c-T/EIgQekhAL+J4Xsvl66nCVv49M\""
+														},
+														{
+															"key": "Date",
+															"value": "Mon, 02 Oct 2023 10:54:50 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"message\": \"Experience edited successfully\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Delete Experience",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{TOKEN}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker/experience/650f76a2d7ee9b441d6ca5e2",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"user",
+														"profile",
+														"jobseeker",
+														"experience",
+														"650f76a2d7ee9b441d6ca5e2"
+													]
+												},
+												"description": "Jobseekers can remove a specific experience from their profile."
+											},
+											"response": [
+												{
+													"name": "Delete Experience",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker/experience/650f7314d7ee9b441d6ca5d7",
+															"host": [
+																"{{LOCAL_BASE_URL}}"
+															],
+															"path": [
+																"user",
+																"profile",
+																"jobseeker",
+																"experience",
+																"650f7314d7ee9b441d6ca5d7"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "45"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"2d-pjUM7Tbm+V7AubAaLL32W/86M2A\""
+														},
+														{
+															"key": "Date",
+															"value": "Sat, 23 Sep 2023 23:37:56 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"message\": \"Experience deleted successfully\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Clear Experience",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{TOKEN}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker/experience",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"user",
+														"profile",
+														"jobseeker",
+														"experience"
+													]
+												},
+												"description": "Jobseekers can clear all the experiences added so far from their profile."
+											},
+											"response": [
+												{
+													"name": "Clear Experience",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker/experience",
+															"host": [
+																"{{LOCAL_BASE_URL}}"
+															],
+															"path": [
+																"user",
+																"profile",
+																"jobseeker",
+																"experience"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "45"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"2d-Zjyj7ike9V9sXt9NWSSbacGeIZk\""
+														},
+														{
+															"key": "Date",
+															"value": "Sun, 24 Sep 2023 11:30:47 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"message\": \"Experience cleared successfully\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Education",
+									"item": [
+										{
+											"name": "Add Education",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{TOKEN}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"education\":{\r\n        \"score\": 100,\r\n        \"scoredOutOf\": 100,\r\n        \"degree\": \"10th\",\r\n        \"institute\": \"DEFJJJSJF Public School\",\r\n        \"location\": \"STU, JDEK\",\r\n        \"startDate\": \"1996-06-01T18:15:00.000Z\",\r\n        \"endDate\": \"1996-06-01T18:15:00.000Z\"\r\n    }\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker/education",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"user",
+														"profile",
+														"jobseeker",
+														"education"
+													]
+												},
+												"description": "Jobseekers can add their education details using this endpoint."
+											},
+											"response": [
+												{
+													"name": "Add Education",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n    \"education\":{\r\n        \"score\": 100,\r\n        \"scoredOutOf\": 100,\r\n        \"degree\": \"10th\",\r\n        \"institute\": \"DEFJJJSJF Public School\",\r\n        \"location\": \"STU, JDEK\",\r\n        \"startDate\": \"1996-06-01T18:15:00.000Z\",\r\n        \"endDate\": \"1996-06-01T18:15:00.000Z\"\r\n    }\r\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker/education",
+															"host": [
+																"{{LOCAL_BASE_URL}}"
+															],
+															"path": [
+																"user",
+																"profile",
+																"jobseeker",
+																"education"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "42"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"2a-yRjtPNnJUTxc+2e/h+hLQLKmjvU\""
+														},
+														{
+															"key": "Date",
+															"value": "Sun, 24 Sep 2023 00:32:02 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"message\": \"Education added successfully\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Edit Education",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{TOKEN}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"education\":{\r\n        \"score\": 90,\r\n        \"scoredOutOf\": 100,\r\n        \"degree\": \"10th\",\r\n        \"institute\": \"Guru Gobind Public School\",\r\n        \"location\": \"STU, JDEK\",\r\n        \"startDate\": \"1996-06-01T18:15:00.000Z\",\r\n        \"endDate\": \"1996-06-01T18:15:00.000Z\"\r\n    }\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker/education/651a6d822e5e9d656eb83d28",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"user",
+														"profile",
+														"jobseeker",
+														"education",
+														"651a6d822e5e9d656eb83d28"
+													]
+												},
+												"description": "Jobseekers can edit previously added education detail."
+											},
+											"response": [
+												{
+													"name": "Edit Education",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n    \"education\":{\r\n        \"score\": 100,\r\n        \"scoredOutOf\": 100,\r\n        \"degree\": \"10th\",\r\n        \"institute\": \"Guru Gobind Public School\",\r\n        \"location\": \"STU, JDEK\",\r\n        \"startDate\": \"1996-06-01T18:15:00.000Z\",\r\n        \"endDate\": \"1996-06-01T18:15:00.000Z\"\r\n    }\r\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker/education/650f8382809ac379d9614aae",
+															"host": [
+																"{{LOCAL_BASE_URL}}"
+															],
+															"path": [
+																"user",
+																"profile",
+																"jobseeker",
+																"education",
+																"650f8382809ac379d9614aae"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "43"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"2b-wYQ019o0wsxEYPAc6PN4fwMRCNs\""
+														},
+														{
+															"key": "Date",
+															"value": "Sun, 24 Sep 2023 00:33:48 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"message\": \"Education edited successfully\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Delete Education",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{TOKEN}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker/education/650f83ec809ac379d9614ab6",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"user",
+														"profile",
+														"jobseeker",
+														"education",
+														"650f83ec809ac379d9614ab6"
+													]
+												},
+												"description": "Jobseekers can delete previously added education."
+											},
+											"response": [
+												{
+													"name": "Delete Education",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker/education/650f83ec809ac379d9614ab6",
+															"host": [
+																"{{LOCAL_BASE_URL}}"
+															],
+															"path": [
+																"user",
+																"profile",
+																"jobseeker",
+																"education",
+																"650f83ec809ac379d9614ab6"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "44"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"2c-bxL2K8WQZpgLQYMkE59B0E2dmHs\""
+														},
+														{
+															"key": "Date",
+															"value": "Sun, 24 Sep 2023 00:35:26 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"message\": \"Education deleted successfully\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Clear Education",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{TOKEN}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker/education",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"user",
+														"profile",
+														"jobseeker",
+														"education"
+													]
+												},
+												"description": "Jobseekers can delete all the education details added so far."
+											},
+											"response": [
+												{
+													"name": "Clear Education",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker/education",
+															"host": [
+																"{{LOCAL_BASE_URL}}"
+															],
+															"path": [
+																"user",
+																"profile",
+																"jobseeker",
+																"education"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "44"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"2c-jzAscCop5DdHuyRn4Li/k7DNKNo\""
+														},
+														{
+															"key": "Date",
+															"value": "Sun, 24 Sep 2023 11:31:39 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"message\": \"Education cleared successfully\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Add Profile",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"personalInfo\":{\r\n        \"firstName\":\"Anurag\",\r\n        \"lastName\": \"Singh\",\r\n        \"dob\":\"1996-06-01T18:15:00.000Z\",\r\n        \"nationality\": \"Indian\", // or could be \"Other\"\r\n        \"gender\": \"Male\" // \"Female or \"Other\"\r\n    },\r\n    \"contactInfo\": {\r\n        \"address\": \"XYZ Street\",\r\n        \"phoneNo\": \"9999999999\",\r\n        \"socialMediaProfiles\": [\r\n            \"https://programmer_govinda.com\"\r\n        ]\r\n    }, \r\n    \"education\": [\r\n        {\r\n            \"degree\": \"12th\",\r\n            \"score\": 89.23,\r\n            \"scoredOutOf\": 100,\r\n            \"institute\": \"DEF Public School\",\r\n            \"location\": \"STU, JDEK\",\r\n            \"startDate\": \"1996-06-01T18:15:00.000Z\",\r\n            \"endDate\": \"1996-06-01T18:15:00.000Z\"\r\n        }\r\n    ],\r\n    \"experience\": [\r\n        {\r\n            \"jobTitle\": \"Backend Developer\",\r\n            \"description\": \"<points related to experience>\",\r\n            \"company\": \"ABC Internationals\",\r\n            \"location\": \"Remote\",\r\n            \"startDate\": \"1996-06-01T18:15:00.000Z\",\r\n            \"endDate\": \"1996-06-01T18:15:00.000Z\"\r\n        }\r\n    ],\r\n    \"skills\": [\r\n        \"Backend Development\",\r\n        \"Full-Stack Development\",\r\n        \"Android Development\"\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"user",
+												"profile",
+												"jobseeker"
+											]
+										},
+										"description": "Jobseekers can create their profile which will be required for applying to jobs on \"Job Ki Khoj\"."
+									},
+									"response": [
+										{
+											"name": "Add Profile",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"personalInfo\":{\r\n        \"firstName\":\"Anurag\",\r\n        \"lastName\": \"Singh\",\r\n        \"dob\":\"1996-06-01T18:15:00.000Z\",\r\n        \"nationality\": \"Indian\", // or could be \"Other\"\r\n        \"gender\": \"Male\" // \"Female or \"Other\"\r\n    },\r\n    \"contactInfo\": {\r\n        \"address\": \"XYZ Street\",\r\n        \"phoneNo\": \"9999999999\",\r\n        \"socialMediaProfiles\": [\r\n            \"https://programmer_govinda.com\"\r\n        ]\r\n    }, \r\n    \"education\": [\r\n        {\r\n            \"degree\": \"12th\",\r\n            \"score\": 89.23,\r\n            \"scoredOutOf\": 100,\r\n            \"institute\": \"DEF Public School\",\r\n            \"location\": \"STU, JDEK\",\r\n            \"startDate\": \"1996-06-01T18:15:00.000Z\",\r\n            \"endDate\": \"1996-06-01T18:15:00.000Z\"\r\n        }\r\n    ],\r\n    \"experience\": [\r\n        {\r\n            \"jobTitle\": \"Backend Developer\",\r\n            \"description\": \"<points related to experience>\",\r\n            \"company\": \"ABC Internationals\",\r\n            \"location\": \"Remote\",\r\n            \"startDate\": \"1996-06-01T18:15:00.000Z\",\r\n            \"endDate\": \"1996-06-01T18:15:00.000Z\"\r\n        }\r\n    ],\r\n    \"skills\": [\r\n        \"Backend Development\",\r\n        \"Full-Stack Development\",\r\n        \"Android Development\"\r\n    ]\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/user/jobseeker/profile",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"user",
+														"jobseeker",
+														"profile"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "42"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"2a-YdicRhY9LSobAAw1Js7p4NP9lyo\""
+												},
+												{
+													"key": "Date",
+													"value": "Sat, 23 Sep 2023 21:47:00 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"Profile created successfully\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Profile",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"user",
+												"profile",
+												"jobseeker"
+											]
+										},
+										"description": "Jobseekers can fetch and see their latest profile."
+									},
+									"response": [
+										{
+											"name": "Get Profile",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"user",
+														"profile",
+														"jobseeker"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "1159"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"487-3NZiryPRF186+ssEVgDTVoZLqAY\""
+												},
+												{
+													"key": "Date",
+													"value": "Sat, 07 Oct 2023 19:39:07 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"profile\": {\n        \"profilePic\": {\n            \"url\": \"https://res.cloudinary.com/di8yqjmjj/image/upload/v1696707366/profile_images/d5kd7iy7nzini5mbmfev.jpg\",\n            \"publicId\": \"profile_images/d5kd7iy7nzini5mbmfev\"\n        },\n        \"_id\": \"651a6d822e5e9d656eb83d27\",\n        \"userId\": \"650f4326a09fb5b833626fb1\",\n        \"personalInfo\": {\n            \"firstName\": \"Anurag\",\n            \"lastName\": \"Singh\",\n            \"dob\": \"1996-06-01T18:15:00.000Z\",\n            \"nationality\": \"Indian\",\n            \"gender\": \"Male\"\n        },\n        \"contactInfo\": {\n            \"address\": \"XYZ Street\",\n            \"phoneNo\": \"9999999999\",\n            \"socialMediaProfiles\": [\n                \"https://programmer_govinda.com\"\n            ]\n        },\n        \"education\": [\n            {\n                \"degree\": \"10th\",\n                \"score\": 90,\n                \"scoredOutOf\": 100,\n                \"institute\": \"Guru Gobind Public School\",\n                \"location\": \"STU, JDEK\",\n                \"startDate\": \"1996-06-01T18:15:00.000Z\",\n                \"endDate\": \"1996-06-01T18:15:00.000Z\",\n                \"_id\": \"651a6d822e5e9d656eb83d28\"\n            }\n        ],\n        \"experience\": [\n            {\n                \"jobTitle\": \"Frontend Developer\",\n                \"description\": \"<points related to experience>\",\n                \"company\": \"ABC Internationals\",\n                \"location\": \"Remote\",\n                \"startDate\": \"1996-06-01T18:15:00.000Z\",\n                \"endDate\": \"1996-06-01T18:15:00.000Z\",\n                \"_id\": \"651aa1794ae0a2f5b47184e4\"\n            }\n        ],\n        \"skills\": [\n            \"Backend Development\",\n            \"Full-Stack Development\",\n            \"Android Development\"\n        ],\n        \"createdAt\": \"2023-10-02T07:13:06.158Z\",\n        \"updatedAt\": \"2023-10-07T19:36:18.407Z\",\n        \"__v\": 0\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update Contact Info",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"contactInfo\": {\r\n        \"address\": \"Jane Street\",\r\n        \"phoneNo\": \"9999999999\",\r\n        \"socialMediaProfiles\": []\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/user/profile/jobseeker/contact-info",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"user",
+												"profile",
+												"jobseeker",
+												"contact-info"
+											]
+										},
+										"description": "Jobseekers can update their contact info."
+									},
+									"response": [
+										{
+											"name": "Update Contact Info",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"contactInfo\": {\r\n        \"address\": \"Jane Street\",\r\n        \"phoneNo\": \"9999999999\",\r\n        \"socialMediaProfiles\": []\r\n    }\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker/contact-info",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"user",
+														"profile",
+														"jobseeker",
+														"contact-info"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "47"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"2f-R68BUnVd39hAW3I6/pNzP5B2ZZI\""
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 24 Sep 2023 11:55:55 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"Contact info updated successfully\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Update Personal Info",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"personalInfo\":{\r\n        \"firstName\":\"John\",\r\n        \"lastName\": \"Doe\",\r\n        \"dob\":\"1996-06-01T18:15:00.000Z\",\r\n        \"nationality\": \"Indian\", // or could be \"Other\"\r\n        \"gender\": \"Male\" // \"Female or \"Other\"\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/user/profile/jobseeker/personal-info",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"user",
+												"profile",
+												"jobseeker",
+												"personal-info"
+											]
+										},
+										"description": "Jobseekers can update their personal info."
+									},
+									"response": [
+										{
+											"name": "Update Personal Info",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"personalInfo\":{\r\n        \"firstName\":\"John\",\r\n        \"lastName\": \"Doe\",\r\n        \"dob\":\"1996-06-01T18:15:00.000Z\",\r\n        \"nationality\": \"Indian\", // or could be \"Other\"\r\n        \"gender\": \"Male\" // \"Female or \"Other\"\r\n    }\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker/personal-info",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"user",
+														"profile",
+														"jobseeker",
+														"personal-info"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "48"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"30-GUDVKI0kcDdzO8oumFiLSRBMPnI\""
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 24 Sep 2023 11:57:29 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"Personal info updated successfully\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Update Profile PIc",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "pic",
+													"type": "file",
+													"src": "/F:/OFFICE WORK/hackathons/sih2023/sample data for testing/sample-profile-pic.jpg"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/user/profile/jobseeker/profile-pic",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"user",
+												"profile",
+												"jobseeker",
+												"profile-pic"
+											]
+										},
+										"description": "Jobseekers can update their profile pic."
+									},
+									"response": [
+										{
+											"name": "Edit Profile PIc",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "pic",
+															"type": "file",
+															"src": "/F:/OFFICE WORK/hackathons/sih2023/sample data for testing/sample-profile-pic.jpg"
+														},
+														{
+															"key": "pic",
+															"type": "file",
+															"src": "/F:/OFFICE WORK/QuickGhy/project/postman api collection/QuickGhy.postman_collection[222].json",
+															"disabled": true
+														},
+														{
+															"key": "what",
+															"value": "helloworld",
+															"type": "text",
+															"disabled": true
+														},
+														{
+															"key": "hell",
+															"value": "sjdkjf",
+															"type": "text",
+															"disabled": true
+														}
+													]
+												},
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/user/profile/jobseeker/profile-pic",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"user",
+														"profile",
+														"jobseeker",
+														"profile-pic"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "46"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"2e-aoFNaG5HYSJzjn5ZvEceo6wdBSw\""
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 02 Oct 2023 07:27:58 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"Profile pic updated successfully\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Update Skills",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"skills\":[\r\n        \"Backend Development\",\r\n        \"Android Development\",\r\n        \"DevOps\"\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/user/profile/jobseeker/skills",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"user",
+												"profile",
+												"jobseeker",
+												"skills"
+											]
+										},
+										"description": "Jobseekrs can update their skills."
+									},
+									"response": [
+										{
+											"name": "Update Skills",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"skills\":[\r\n        \"Backend Development\",\r\n        \"Android Development\",\r\n        \"DevOps\"\r\n    ]\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{BASE_URL}}/user/profile/jobseeker/skills",
+													"host": [
+														"{{BASE_URL}}"
+													],
+													"path": [
+														"user",
+														"profile",
+														"jobseeker",
+														"skills"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Tue, 03 Oct 2023 08:17:51 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "CF-Ray",
+													"value": "8103c04148f41b9e-DEL"
+												},
+												{
+													"key": "CF-Cache-Status",
+													"value": "DYNAMIC"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"28-PTqjHY2+Lv1QUtEBt0e0+eZdJtQ\""
+												},
+												{
+													"key": "Vary",
+													"value": "Accept-Encoding"
+												},
+												{
+													"key": "x-powered-by",
+													"value": "Express"
+												},
+												{
+													"key": "x-render-origin-server",
+													"value": "Render"
+												},
+												{
+													"key": "Server",
+													"value": "cloudflare"
+												},
+												{
+													"key": "Content-Encoding",
+													"value": "br"
+												},
+												{
+													"key": "alt-svc",
+													"value": "h3=\":443\"; ma=86400"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"Skills edited successfully\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Employer",
+							"item": [
+								{
+									"name": "Add Profile",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"personalInfo\":{\r\n        \"firstName\":\"Anurag\",\r\n        \"lastName\": \"Singh\",\r\n        \"dob\":\"1996-06-01T18:15:00.000Z\",\r\n        \"nationality\": \"Indian\", // or could be \"Other\"\r\n        \"gender\": \"Male\" // \"Female or \"Other\"\r\n    },\r\n    \"contactInfo\": {\r\n        \"address\": \"XYZ Street\",\r\n        \"phoneNo\": \"9999999999\",\r\n        \"socialMediaProfiles\": [\r\n            \"https://programmer_govinda.com\"\r\n        ]\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/user/profile/employer",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"user",
+												"profile",
+												"employer"
+											]
+										},
+										"description": "Employers can create their profiles which can be used by jobseekers to contact them."
+									},
+									"response": [
+										{
+											"name": "Add Profile",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"personalInfo\":{\r\n        \"firstName\":\"Anurag\",\r\n        \"lastName\": \"Singh\",\r\n        \"dob\":\"1996-06-01T18:15:00.000Z\",\r\n        \"nationality\": \"Indian\", // or could be \"Other\"\r\n        \"gender\": \"Male\" // \"Female or \"Other\"\r\n    },\r\n    \"contactInfo\": {\r\n        \"address\": \"XYZ Street\",\r\n        \"phoneNo\": \"9999999999\",\r\n        \"socialMediaProfiles\": [\r\n            \"https://programmer_govinda.com\"\r\n        ]\r\n    }\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/user/profile/employer",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"user",
+														"profile",
+														"employer"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "42"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"2a-YdicRhY9LSobAAw1Js7p4NP9lyo\""
+												},
+												{
+													"key": "Date",
+													"value": "Sat, 07 Oct 2023 19:25:21 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"Profile created successfully\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Profile",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/user/profile/employer",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"user",
+												"profile",
+												"employer"
+											]
+										},
+										"description": "Employers can fetch their profile."
+									},
+									"response": [
+										{
+											"name": "Get Profile",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/user/profile/employer",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"user",
+														"profile",
+														"employer"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "477"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1dd-Z9xSRMEkOsyqBhslvvoMWpQKShc\""
+												},
+												{
+													"key": "Date",
+													"value": "Sat, 07 Oct 2023 19:38:36 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"profile\": {\n        \"profilePic\": {\n            \"url\": \"https://res.cloudinary.com/di8yqjmjj/image/upload/v1696707492/profile_images/sddqcr7xltnicattz3my.jpg\",\n            \"publicId\": \"profile_images/sddqcr7xltnicattz3my\"\n        },\n        \"_id\": \"6521b0a1e27338cc1c0209f5\",\n        \"userId\": \"650f4326a09fb5b833626fb1\",\n        \"personalInfo\": {\n            \"firstName\": \"John\",\n            \"lastName\": \"Doe\",\n            \"dob\": \"1996-06-01T18:15:00.000Z\",\n            \"nationality\": \"Indian\",\n            \"gender\": \"Male\"\n        },\n        \"contactInfo\": {\n            \"address\": \"Jane Street\",\n            \"phoneNo\": \"9999999999\",\n            \"socialMediaProfiles\": []\n        },\n        \"__v\": 0\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update Contact Info",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"contactInfo\": {\r\n        \"address\": \"Jane Street\",\r\n        \"phoneNo\": \"9999999999\",\r\n        \"socialMediaProfiles\": []\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/user/profile/employer/contact-info",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"user",
+												"profile",
+												"employer",
+												"contact-info"
+											]
+										},
+										"description": "Employers can update their contact info."
+									},
+									"response": [
+										{
+											"name": "Update Contact Info",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"contactInfo\": {\r\n        \"address\": \"Jane Street\",\r\n        \"phoneNo\": \"9999999999\",\r\n        \"socialMediaProfiles\": []\r\n    }\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/user/profile/employer/contact-info",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"user",
+														"profile",
+														"employer",
+														"contact-info"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "47"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"2f-R68BUnVd39hAW3I6/pNzP5B2ZZI\""
+												},
+												{
+													"key": "Date",
+													"value": "Sat, 07 Oct 2023 19:26:13 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"Contact info updated successfully\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Update Personal Info",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"personalInfo\":{\r\n        \"firstName\":\"John\",\r\n        \"lastName\": \"Doe\",\r\n        \"dob\":\"1996-06-01T18:15:00.000Z\",\r\n        \"nationality\": \"Indian\", // or could be \"Other\"\r\n        \"gender\": \"Male\" // \"Female or \"Other\"\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/user/profile/employer/personal-info",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"user",
+												"profile",
+												"employer",
+												"personal-info"
+											]
+										},
+										"description": "Employers can update their personal info."
+									},
+									"response": [
+										{
+											"name": "Update Personal Info",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"personalInfo\":{\r\n        \"firstName\":\"John\",\r\n        \"lastName\": \"Doe\",\r\n        \"dob\":\"1996-06-01T18:15:00.000Z\",\r\n        \"nationality\": \"Indian\", // or could be \"Other\"\r\n        \"gender\": \"Male\" // \"Female or \"Other\"\r\n    }\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/user/profile/employer/personal-info",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"user",
+														"profile",
+														"employer",
+														"personal-info"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "48"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"30-GUDVKI0kcDdzO8oumFiLSRBMPnI\""
+												},
+												{
+													"key": "Date",
+													"value": "Sat, 07 Oct 2023 19:26:29 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"Personal info updated successfully\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Update Profile PIc",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{TOKEN}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "pic",
+													"type": "file",
+													"src": "/F:/OFFICE WORK/hackathons/sih2023/sample data for testing/sample-profile-pic.jpg"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/user/profile/employer/profile-pic",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"user",
+												"profile",
+												"employer",
+												"profile-pic"
+											]
+										},
+										"description": "Employers can update their profile pic."
+									},
+									"response": [
+										{
+											"name": "Update Profile PIc",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "pic",
+															"type": "file",
+															"src": "/F:/OFFICE WORK/hackathons/sih2023/sample data for testing/sample-profile-pic.jpg"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/user/profile/employer/profile-pic",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"user",
+														"profile",
+														"employer",
+														"profile-pic"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "46"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"2e-aoFNaG5HYSJzjn5ZvEceo6wdBSw\""
+												},
+												{
+													"key": "Date",
+													"value": "Sat, 07 Oct 2023 19:38:22 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"Profile pic updated successfully\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Jobs",
+			"item": [
+				{
+					"name": "PGRKAM",
+					"item": [
+						{
+							"name": "Govt Jobs",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_BASE_URL}}/jobs/pgrkam/public?page=1&pageSize=10",
+									"host": [
+										"{{LOCAL_BASE_URL}}"
+									],
+									"path": [
+										"jobs",
+										"pgrkam",
+										"public"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								},
+								"description": "Users can fetch Govt. Jobs available on PGRKAM portal."
+							},
+							"response": [
+								{
+									"name": "Govt Jobs",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/jobs/pgrkam/public?page=1&pageSize=10",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"jobs",
+												"pgrkam",
+												"public"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "pageSize",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "10823"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2a47-YU4uQFRmtZFoNlc7rnQnzZ4b/5A\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 05 Sep 2023 18:09:54 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"jobs\": [\n        {\n            \"_id\": \"64f5fde59f5ad5023ccf381e\",\n            \"id\": 9931,\n            \"companyName\": \" Bharat Petroleum Corporation Limited (BPCL)\",\n            \"govt\": \"Government of India\",\n            \"jobTitle\": \"Chemical apprentices\",\n            \"location\": \"Maharashtra  \",\n            \"description\": \"\",\n            \"displayQualification\": \"Graduate in chemical engineering\",\n            \"searchQualification\": \"71,72\",\n            \"educationLevel\": 7,\n            \"educationLevel2\": 7,\n            \"searchQualification2\": \"71,72\",\n            \"designation\": null,\n            \"districtId\": null,\n            \"experience\": \"Fresher\",\n            \"specialization\": \"'admin'\",\n            \"minExperience\": 0,\n            \"maxExperience\": 0,\n            \"salary\": null,\n            \"genderPreference\": \"Male\",\n            \"genderSearch\": null,\n            \"minAgeSearch\": null,\n            \"minAge\": 18,\n            \"maxAge\": 27,\n            \"vacancy\": 17,\n            \"lastDate\": \"2023-09-03T18:15:00.000Z\",\n            \"walkInInterview\": null,\n            \"postedOn\": \"2023-07-13T00:00:00.000Z\",\n            \"pdfLink\": \"https://portal.mhrdnats.gov.in/boat/login/user_login.action\",\n            \"applyLink\": \"https://portal.mhrdnats.gov.in/boat/login/user_login.action\",\n            \"applyMode\": \"Online\",\n            \"remarks\": null,\n            \"createdAt\": \"2023-07-12T18:15:00.000Z\",\n            \"updatedAt\": \"2023-07-13T01:13:44.000Z\",\n            \"postedBy\": \"Meenakshi Bedi\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64f5fde59f5ad5023ccf381f\",\n            \"id\": 9932,\n            \"companyName\": \"Bharat Petroleum Corporation Limited (BPCL)\",\n            \"govt\": \"Government of India\",\n            \"jobTitle\": \"Civil Engineering\",\n            \"location\": \"Maharashtra  \",\n            \"description\": \"\",\n            \"displayQualification\": \"Graduate in civil engineering \",\n            \"searchQualification\": \"82,221,346\",\n            \"educationLevel\": 7,\n            \"educationLevel2\": 7,\n            \"searchQualification2\": \"82,221,346\",\n            \"designation\": null,\n            \"districtId\": null,\n            \"experience\": \"Fresher\",\n            \"specialization\": \"'admin'\",\n            \"minExperience\": 0,\n            \"maxExperience\": 0,\n            \"salary\": null,\n            \"genderPreference\": \"Any\",\n            \"genderSearch\": null,\n            \"minAgeSearch\": null,\n            \"minAge\": 18,\n            \"maxAge\": 27,\n            \"vacancy\": 8,\n            \"lastDate\": \"2023-09-03T18:15:00.000Z\",\n            \"walkInInterview\": null,\n            \"postedOn\": \"2023-07-13T00:00:00.000Z\",\n            \"pdfLink\": \"https://portal.mhrdnats.gov.in/boat/login/user_login.action\",\n            \"applyLink\": \"https://portal.mhrdnats.gov.in/boat/login/user_login.action\",\n            \"applyMode\": \"Online\",\n            \"remarks\": null,\n            \"createdAt\": \"2023-07-12T18:15:00.000Z\",\n            \"updatedAt\": \"2023-07-13T01:21:44.000Z\",\n            \"postedBy\": \"Meenakshi Bedi\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64f5fde59f5ad5023ccf3820\",\n            \"id\": 9933,\n            \"companyName\": \"Bharat Petroleum Corporation Limited (BPCL)\",\n            \"govt\": \"Government of India\",\n            \"jobTitle\": \"Apprentice Electrical\",\n            \"location\": \"Maharashtra  \",\n            \"description\": \"\",\n            \"displayQualification\": \"Graduate in electrical\",\n            \"searchQualification\": \"223,348\",\n            \"educationLevel\": 7,\n            \"educationLevel2\": 7,\n            \"searchQualification2\": \"223,348\",\n            \"designation\": null,\n            \"districtId\": null,\n            \"experience\": \"Fresher\",\n            \"specialization\": \"'admin'\",\n            \"minExperience\": 0,\n            \"maxExperience\": 0,\n            \"salary\": null,\n            \"genderPreference\": \"Any\",\n            \"genderSearch\": null,\n            \"minAgeSearch\": null,\n            \"minAge\": 18,\n            \"maxAge\": 27,\n            \"vacancy\": 9,\n            \"lastDate\": \"2023-09-03T18:15:00.000Z\",\n            \"walkInInterview\": null,\n            \"postedOn\": \"2023-07-13T00:00:00.000Z\",\n            \"pdfLink\": \"https://portal.mhrdnats.gov.in/boat/login/user_login.action\",\n            \"applyLink\": \"https://portal.mhrdnats.gov.in/boat/login/user_login.action\",\n            \"applyMode\": \"Online\",\n            \"remarks\": null,\n            \"createdAt\": \"2023-07-12T18:15:00.000Z\",\n            \"updatedAt\": \"2023-07-13T01:35:08.000Z\",\n            \"postedBy\": \"Meenakshi Bedi\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64f5fde59f5ad5023ccf3821\",\n            \"id\": 9934,\n            \"companyName\": \"Bharat Petroleum Corporation Limited (BPCL)\",\n            \"govt\": \"Government of India\",\n            \"jobTitle\": \"Mechanical Apprenticeship\",\n            \"location\": \"Maharashtra  \",\n            \"description\": \"\",\n            \"displayQualification\": \"Graduate Mechanical\",\n            \"searchQualification\": \"239,354\",\n            \"educationLevel\": 7,\n            \"educationLevel2\": 7,\n            \"searchQualification2\": \"239,354\",\n            \"designation\": null,\n            \"districtId\": null,\n            \"experience\": \"Fresher\",\n            \"specialization\": \"'admin'\",\n            \"minExperience\": 0,\n            \"maxExperience\": 0,\n            \"salary\": null,\n            \"genderPreference\": \"Any\",\n            \"genderSearch\": null,\n            \"minAgeSearch\": null,\n            \"minAge\": 18,\n            \"maxAge\": 27,\n            \"vacancy\": 12,\n            \"lastDate\": \"2023-09-03T18:15:00.000Z\",\n            \"walkInInterview\": null,\n            \"postedOn\": \"2023-07-13T00:00:00.000Z\",\n            \"pdfLink\": \"https://portal.mhrdnats.gov.in/boat/login/user_login.action\",\n            \"applyLink\": \"https://portal.mhrdnats.gov.in/boat/login/user_login.action\",\n            \"applyMode\": \"Online\",\n            \"remarks\": null,\n            \"createdAt\": \"2023-07-12T18:15:00.000Z\",\n            \"updatedAt\": \"2023-07-13T01:50:02.000Z\",\n            \"postedBy\": \"Meenakshi Bedi\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64f5fde59f5ad5023ccf3822\",\n            \"id\": 9935,\n            \"companyName\": \"Bharat Petroleum Corporation Limited (BPCL)\",\n            \"govt\": \"Government of India\",\n            \"jobTitle\": \"Non Engineering graduate \",\n            \"location\": \"Maharashtra  \",\n            \"description\": \"\",\n            \"displayQualification\": \"B.com with computer knowledge.\",\n            \"searchQualification\": \"5\",\n            \"educationLevel\": 7,\n            \"educationLevel2\": 7,\n            \"searchQualification2\": \"5\",\n            \"designation\": null,\n            \"districtId\": null,\n            \"experience\": \"Fresher\",\n            \"specialization\": \"'admin'\",\n            \"minExperience\": 0,\n            \"maxExperience\": 0,\n            \"salary\": null,\n            \"genderPreference\": \"Any\",\n            \"genderSearch\": null,\n            \"minAgeSearch\": null,\n            \"minAge\": 18,\n            \"maxAge\": 27,\n            \"vacancy\": 6,\n            \"lastDate\": \"2023-09-03T18:15:00.000Z\",\n            \"walkInInterview\": null,\n            \"postedOn\": \"2023-07-13T00:00:00.000Z\",\n            \"pdfLink\": \"https://portal.mhrdnats.gov.in/boat/login/user_login.action\",\n            \"applyLink\": \"https://portal.mhrdnats.gov.in/boat/login/user_login.action\",\n            \"applyMode\": \"Online\",\n            \"remarks\": null,\n            \"createdAt\": \"2023-07-12T18:15:00.000Z\",\n            \"updatedAt\": \"2023-07-13T02:02:29.000Z\",\n            \"postedBy\": \"Meenakshi Bedi\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64f5fde59f5ad5023ccf3823\",\n            \"id\": 10007,\n            \"companyName\": \"PUNJAB AGRICULTURAL UNIVERSITY DEPARTMENT OF SOIL SCIENCE\",\n            \"govt\": \"Government of Punjab\",\n            \"jobTitle\": \"Junior Field/Lab Helper\",\n            \"location\": \"Punjab\",\n            \"description\": \"Middle with Punjabi\",\n            \"displayQualification\": \"Middle with Punjabi\",\n            \"searchQualification\": \"55\",\n            \"educationLevel\": 2,\n            \"educationLevel2\": 2,\n            \"searchQualification2\": \"55\",\n            \"designation\": null,\n            \"districtId\": null,\n            \"experience\": \"0\",\n            \"specialization\": \"'admin'\",\n            \"minExperience\": 0,\n            \"maxExperience\": 0,\n            \"salary\": null,\n            \"genderPreference\": \"Any\",\n            \"genderSearch\": null,\n            \"minAgeSearch\": null,\n            \"minAge\": 18,\n            \"maxAge\": 63,\n            \"vacancy\": 1,\n            \"lastDate\": \"2023-09-04T18:15:00.000Z\",\n            \"walkInInterview\": \"2023-09-18T00:00:00.000Z\",\n            \"postedOn\": \"2023-08-28T00:00:00.000Z\",\n            \"pdfLink\": \"https://www.pau.edu/index.php?_act=manageVacancy&DO=viewVacancyDetail&intID=5708&intSubID=147\",\n            \"applyLink\": null,\n            \"applyMode\": \"Offline\",\n            \"remarks\": null,\n            \"createdAt\": \"2023-08-27T18:15:00.000Z\",\n            \"updatedAt\": \"2023-08-27T23:37:04.000Z\",\n            \"postedBy\": \"Daljeet Singh Brar\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64f5fde59f5ad5023ccf3824\",\n            \"id\": 9974,\n            \"companyName\": \"PAU-College of Agriculture, Ballowal Saunkhri, Tehsil Balachaur, S.B.S. Nagar (Punjab)\",\n            \"govt\": \"Government of Punjab\",\n            \"jobTitle\": \"Teaching Assistant (Biotechnology)\",\n            \"location\": \"Punjab\",\n            \"description\": \"Master’s degree in Biotechnology\",\n            \"displayQualification\": \"B.Sc. (Biotech)/B.Sc. Agri. (Hort.)\",\n            \"searchQualification\": \"177\",\n            \"educationLevel\": 7,\n            \"educationLevel2\": 8,\n            \"searchQualification2\": \"479\",\n            \"designation\": null,\n            \"districtId\": null,\n            \"experience\": \"0\",\n            \"specialization\": \"'admin'\",\n            \"minExperience\": 0,\n            \"maxExperience\": 0,\n            \"salary\": null,\n            \"genderPreference\": \"Any\",\n            \"genderSearch\": null,\n            \"minAgeSearch\": null,\n            \"minAge\": 18,\n            \"maxAge\": 37,\n            \"vacancy\": 1,\n            \"lastDate\": \"2023-09-05T18:15:00.000Z\",\n            \"walkInInterview\": \"2023-09-26T00:00:00.000Z\",\n            \"postedOn\": \"2023-08-09T00:00:00.000Z\",\n            \"pdfLink\": \"https://www.pau.edu/index.php?_act=manageVacancy&DO=viewVacancyDetail&intID=5673&intSubID=147\",\n            \"applyLink\": null,\n            \"applyMode\": \"Offline\",\n            \"remarks\": null,\n            \"createdAt\": \"2023-08-08T18:15:00.000Z\",\n            \"updatedAt\": \"2023-08-09T00:48:44.000Z\",\n            \"postedBy\": \"Daljeet Singh Brar\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64f5fde59f5ad5023ccf3825\",\n            \"id\": 9997,\n            \"companyName\": \"AIMS\",\n            \"govt\": \"Government of India\",\n            \"jobTitle\": \"GROUP A,B AND C\",\n            \"location\": \"Punjab\",\n            \"description\": \"\",\n            \"displayQualification\": \"GRADUATION\",\n            \"searchQualification\": \"19\",\n            \"educationLevel\": 8,\n            \"educationLevel2\": 8,\n            \"searchQualification2\": \"19\",\n            \"designation\": null,\n            \"districtId\": null,\n            \"experience\": \"SAME FIELD\",\n            \"specialization\": \"'admin'\",\n            \"minExperience\": 0,\n            \"maxExperience\": 1,\n            \"salary\": null,\n            \"genderPreference\": \"Any\",\n            \"genderSearch\": null,\n            \"minAgeSearch\": null,\n            \"minAge\": 25,\n            \"maxAge\": 35,\n            \"vacancy\": 35,\n            \"lastDate\": \"2023-09-10T18:15:00.000Z\",\n            \"walkInInterview\": \"2023-10-03T00:00:00.000Z\",\n            \"postedOn\": \"2023-08-21T00:00:00.000Z\",\n            \"pdfLink\": null,\n            \"applyLink\": null,\n            \"applyMode\": \"Online\",\n            \"remarks\": null,\n            \"createdAt\": \"2023-08-20T18:15:00.000Z\",\n            \"updatedAt\": \"2023-08-20T22:15:53.000Z\",\n            \"postedBy\": \"Varun Joshi\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64f5fde59f5ad5023ccf3826\",\n            \"id\": 10003,\n            \"companyName\": \"Punjab information & communication Technology corporation limited , Udyog Bhawan , sector 17 , Chandigarh \",\n            \"govt\": \"Government of Punjab\",\n            \"jobTitle\": \"Executive (Technical support) \",\n            \"location\": \"Chandigarh\",\n            \"description\": \"PGDCA with 2 year experience \",\n            \"displayQualification\": \"Executive (Technical Support) on Contract basis Essential Qualification\\r\\n\\r\\n1. Graduate with PGDCA +2 Years relevant Experience 2. Should have passed Matriculation standard examination of Punjabi as one of the compulsory or elective subjects from a recognized Board or institution or any other equivalent examination in Punjabi language which may be specified by the Government from time to time. If not already acquired, you shall have to give an undertaking that the same will be submitted within 6 months from the date of joining.\\r\\n\\r\\nEssential Experience\\r\\n\\r\\nMinimum Two years' experience of Troubleshooting for Hardware, Software and Networking problems, Video conferencing manageme/operation, Handling of servers etc. Skills Requirement: The incumbent should have good written and communication skills, should be able to handle independently. the responsibility\",\n            \"searchQualification\": \"46\",\n            \"educationLevel\": 3,\n            \"educationLevel2\": 3,\n            \"searchQualification2\": \"46\",\n            \"designation\": null,\n            \"districtId\": null,\n            \"experience\": \"PGDCA with 2 year experience in relevant field \",\n            \"specialization\": \"'admin'\",\n            \"minExperience\": 2,\n            \"maxExperience\": 2,\n            \"salary\": null,\n            \"genderPreference\": \"Any\",\n            \"genderSearch\": null,\n            \"minAgeSearch\": null,\n            \"minAge\": 18,\n            \"maxAge\": 50,\n            \"vacancy\": 1,\n            \"lastDate\": \"2023-09-12T18:15:00.000Z\",\n            \"walkInInterview\": null,\n            \"postedOn\": \"2023-08-24T00:00:00.000Z\",\n            \"pdfLink\": \"https://punjabinfotech.in/career-jobs\",\n            \"applyLink\": \"https://punjabinfotech.in/career-jobs\",\n            \"applyMode\": \"Online\",\n            \"remarks\": null,\n            \"createdAt\": \"2023-08-23T18:15:00.000Z\",\n            \"updatedAt\": \"2023-08-24T00:39:20.000Z\",\n            \"postedBy\": \"Admin\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"64f5fde59f5ad5023ccf3827\",\n            \"id\": 9999,\n            \"companyName\": \"OHPCL MT,\",\n            \"govt\": \"Government of India\",\n            \"jobTitle\": \"Technical Non Executive Trainee\",\n            \"location\": \"Odisha\",\n            \"description\": \"0\",\n            \"displayQualification\": \" Diploma/ Degree (Relevant Discipline)\",\n            \"searchQualification\": \"680\",\n            \"educationLevel\": 6,\n            \"educationLevel2\": 6,\n            \"searchQualification2\": \"680\",\n            \"designation\": null,\n            \"districtId\": null,\n            \"experience\": \"0\",\n            \"specialization\": \"'admin'\",\n            \"minExperience\": 0,\n            \"maxExperience\": 0,\n            \"salary\": null,\n            \"genderPreference\": \"Any\",\n            \"genderSearch\": null,\n            \"minAgeSearch\": null,\n            \"minAge\": 18,\n            \"maxAge\": 38,\n            \"vacancy\": 150,\n            \"lastDate\": \"2023-09-13T18:15:00.000Z\",\n            \"walkInInterview\": null,\n            \"postedOn\": \"2023-08-24T00:00:00.000Z\",\n            \"pdfLink\": \"https://admin.ohpcltd.com/Siteupdate/RecruitmentFile/OHPC_TNE_05082023.pdf\",\n            \"applyLink\": \"https://ohpcltd.com/\",\n            \"applyMode\": \"Online\",\n            \"remarks\": null,\n            \"createdAt\": \"2023-08-23T18:15:00.000Z\",\n            \"updatedAt\": \"2023-08-23T23:37:40.000Z\",\n            \"postedBy\": \"Ganshayam\",\n            \"__v\": 0\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Private Jobs",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_BASE_URL}}/jobs/pgrkam/private?page=1&pageSize=10",
+									"host": [
+										"{{LOCAL_BASE_URL}}"
+									],
+									"path": [
+										"jobs",
+										"pgrkam",
+										"private"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								},
+								"description": "Users can fetch Private Jobs available on PGRKAM portal."
+							},
+							"response": [
+								{
+									"name": "Private Jobs",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/jobs/pgrkam/private?page=1&pageSize=10",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"jobs",
+												"pgrkam",
+												"private"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "pageSize",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "8100"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1fa4-BPFIgR6iLWcgpSbM9MTXonqrCDw\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 05 Sep 2023 18:10:04 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"jobs\": [\n        {\n            \"metadata\": {\n                \"location\": null,\n                \"redisGeoKey\": null\n            },\n            \"_id\": \"64f5fdd69f5ad5023ccf3635\",\n            \"id\": 8632,\n            \"orgId\": 1936533,\n            \"orgName\": \"Online placement Hub\",\n            \"jobTitle\": \"Assistant Supervisor\",\n            \"designation\": null,\n            \"salaryType\": \"Monthly\",\n            \"description\": \"No experience needed. \\nMinimum Qualification:12th \\nTime flexibility. \\nSalary : 20k-25k. \\nWork content:you can do the work by using your mobile phone.\",\n            \"minExperience\": null,\n            \"maxExperience\": null,\n            \"relMinExp\": null,\n            \"relMaxExp\": null,\n            \"location\": [],\n            \"stateId\": [\n                37\n            ],\n            \"natureOfJob\": 1,\n            \"salaryMin\": 20000,\n            \"salaryMax\": 25000,\n            \"shiftType\": null,\n            \"availableJoin\": null,\n            \"genderPreference\": \"Both\",\n            \"category\": null,\n            \"exServicemen\": 0,\n            \"functionalArea\": 0,\n            \"agePreference\": 30,\n            \"maxAge\": null,\n            \"educationLevel\": \"Graduate\",\n            \"qualification\": null,\n            \"qualification2\": null,\n            \"qualification3\": null,\n            \"vacancies\": 30,\n            \"differentlyAbled\": 0,\n            \"isActive\": 1,\n            \"createdAt\": \"2023-09-03T18:15:00.000Z\"\n        },\n        {\n            \"metadata\": {\n                \"location\": null,\n                \"redisGeoKey\": null\n            },\n            \"_id\": \"64f5fdd69f5ad5023ccf3636\",\n            \"id\": 8631,\n            \"orgId\": 1884971,\n            \"orgName\": \"Girls work Home \",\n            \"jobTitle\": \"HR Manager\",\n            \"designation\": null,\n            \"salaryType\": \"Monthly\",\n            \"description\": \"part time work\",\n            \"minExperience\": null,\n            \"maxExperience\": null,\n            \"relMinExp\": null,\n            \"relMaxExp\": null,\n            \"location\": [],\n            \"stateId\": [\n                37\n            ],\n            \"natureOfJob\": 1,\n            \"salaryMin\": 15000,\n            \"salaryMax\": 18000,\n            \"shiftType\": null,\n            \"availableJoin\": null,\n            \"genderPreference\": \"Female\",\n            \"category\": null,\n            \"exServicemen\": 0,\n            \"functionalArea\": 0,\n            \"agePreference\": 18,\n            \"maxAge\": null,\n            \"educationLevel\": \"12th\",\n            \"qualification\": null,\n            \"qualification2\": null,\n            \"qualification3\": null,\n            \"vacancies\": 10,\n            \"differentlyAbled\": 0,\n            \"isActive\": 1,\n            \"createdAt\": \"2023-09-03T18:15:00.000Z\"\n        },\n        {\n            \"metadata\": {\n                \"location\": null,\n                \"redisGeoKey\": null\n            },\n            \"_id\": \"64f5fdd69f5ad5023ccf3637\",\n            \"id\": 8630,\n            \"orgId\": 1995218,\n            \"orgName\": \"Career consultant and HR\",\n            \"jobTitle\": \"Work from home\",\n            \"designation\": null,\n            \"salaryType\": \"Monthly\",\n            \"description\": \"Great opportunity for unemployement. \\nTime flexibility. \\nPart time/Full time. \\nSalary:15k-20k.\\nWork tool:Mobile Phone.\",\n            \"minExperience\": null,\n            \"maxExperience\": null,\n            \"relMinExp\": null,\n            \"relMaxExp\": null,\n            \"location\": [],\n            \"stateId\": [\n                37\n            ],\n            \"natureOfJob\": 1,\n            \"salaryMin\": 15000,\n            \"salaryMax\": 20000,\n            \"shiftType\": null,\n            \"availableJoin\": null,\n            \"genderPreference\": \"Both\",\n            \"category\": null,\n            \"exServicemen\": 0,\n            \"functionalArea\": 0,\n            \"agePreference\": 30,\n            \"maxAge\": null,\n            \"educationLevel\": \"12th\",\n            \"qualification\": null,\n            \"qualification2\": null,\n            \"qualification3\": null,\n            \"vacancies\": 35,\n            \"differentlyAbled\": 0,\n            \"isActive\": 1,\n            \"createdAt\": \"2023-09-03T18:15:00.000Z\"\n        },\n        {\n            \"metadata\": {\n                \"location\": null,\n                \"redisGeoKey\": null\n            },\n            \"_id\": \"64f5fdd69f5ad5023ccf3638\",\n            \"id\": 8629,\n            \"orgId\": 1973386,\n            \"orgName\": \"M/S G R PAHWA ENTERPRISES \",\n            \"jobTitle\": \"Quality control \",\n            \"designation\": null,\n            \"salaryType\": \"Monthly\",\n            \"description\": \"HAVING KNOWLEDGE OF PETRO CHEMICAL PRODUCT AND ALSO EXPREINCE IN PETRO CHEMICAL\",\n            \"minExperience\": 2,\n            \"maxExperience\": 5,\n            \"relMinExp\": null,\n            \"relMaxExp\": null,\n            \"location\": [\n                41\n            ],\n            \"stateId\": [\n                3\n            ],\n            \"natureOfJob\": 1,\n            \"salaryMin\": 20000,\n            \"salaryMax\": 45000,\n            \"shiftType\": null,\n            \"availableJoin\": null,\n            \"genderPreference\": \"Both\",\n            \"category\": null,\n            \"exServicemen\": 0,\n            \"functionalArea\": 0,\n            \"agePreference\": 50,\n            \"maxAge\": null,\n            \"educationLevel\": \"Post Graduate \",\n            \"qualification\": null,\n            \"qualification2\": null,\n            \"qualification3\": null,\n            \"vacancies\": 2,\n            \"differentlyAbled\": 0,\n            \"isActive\": 1,\n            \"createdAt\": \"2023-09-03T18:15:00.000Z\"\n        },\n        {\n            \"metadata\": {\n                \"location\": null,\n                \"redisGeoKey\": null\n            },\n            \"_id\": \"64f5fdd69f5ad5023ccf3639\",\n            \"id\": 8628,\n            \"orgId\": 1973386,\n            \"orgName\": \"M/S G R PAHWA ENTERPRISES \",\n            \"jobTitle\": \"Marketing /Sales  excutive\",\n            \"designation\": null,\n            \"salaryType\": \"Monthly\",\n            \"description\": \"Having knowledge in internet savvy excel Ms word and email knowledge and good communication skills \",\n            \"minExperience\": 2,\n            \"maxExperience\": 2,\n            \"relMinExp\": null,\n            \"relMaxExp\": null,\n            \"location\": [\n                41\n            ],\n            \"stateId\": [\n                3\n            ],\n            \"natureOfJob\": 1,\n            \"salaryMin\": 12500,\n            \"salaryMax\": 15000,\n            \"shiftType\": null,\n            \"availableJoin\": null,\n            \"genderPreference\": \"Both\",\n            \"category\": null,\n            \"exServicemen\": 0,\n            \"functionalArea\": 0,\n            \"agePreference\": 40,\n            \"maxAge\": null,\n            \"educationLevel\": \"Graduate\",\n            \"qualification\": \"B.A. (Bachelor of Arts )Education\",\n            \"qualification2\": \"B.C.A. (Bachelor of Computer Application)\",\n            \"qualification3\": \"B.Com. (Bachelor of Commerce)\",\n            \"vacancies\": 6,\n            \"differentlyAbled\": 0,\n            \"isActive\": 1,\n            \"createdAt\": \"2023-09-03T18:15:00.000Z\"\n        },\n        {\n            \"metadata\": {\n                \"location\": null,\n                \"redisGeoKey\": null\n            },\n            \"_id\": \"64f5fdd69f5ad5023ccf363a\",\n            \"id\": 8627,\n            \"orgId\": 1995218,\n            \"orgName\": \"Career consultant and HR\",\n            \"jobTitle\": \"Assistant supervisor \",\n            \"designation\": null,\n            \"salaryType\": \"Monthly\",\n            \"description\": \"No experience needed. \\nMinimum Qualification:12th \\nTime flexibility. \\nSalary : 20k-25k. \\nWork content:you can do the work by using your mobile phone.\",\n            \"minExperience\": null,\n            \"maxExperience\": null,\n            \"relMinExp\": null,\n            \"relMaxExp\": null,\n            \"location\": [],\n            \"stateId\": [\n                37\n            ],\n            \"natureOfJob\": 1,\n            \"salaryMin\": 20000,\n            \"salaryMax\": 25000,\n            \"shiftType\": null,\n            \"availableJoin\": null,\n            \"genderPreference\": \"Both\",\n            \"category\": null,\n            \"exServicemen\": 0,\n            \"functionalArea\": 0,\n            \"agePreference\": 30,\n            \"maxAge\": null,\n            \"educationLevel\": \"Graduate\",\n            \"qualification\": null,\n            \"qualification2\": null,\n            \"qualification3\": null,\n            \"vacancies\": 30,\n            \"differentlyAbled\": 0,\n            \"isActive\": 1,\n            \"createdAt\": \"2023-09-03T18:15:00.000Z\"\n        },\n        {\n            \"metadata\": {\n                \"location\": null,\n                \"redisGeoKey\": null\n            },\n            \"_id\": \"64f5fdd69f5ad5023ccf363b\",\n            \"id\": 8626,\n            \"orgId\": 1778998,\n            \"orgName\": \"Career Growth\",\n            \"jobTitle\": \"Work in Invitation, Recruitment & Follow UP Departments.\",\n            \"designation\": null,\n            \"salaryType\": \"Monthly\",\n            \"description\": \"4 Hours in a Day\\nSecure Income\\n\",\n            \"minExperience\": null,\n            \"maxExperience\": null,\n            \"relMinExp\": null,\n            \"relMaxExp\": null,\n            \"location\": [\n                666\n            ],\n            \"stateId\": [\n                3\n            ],\n            \"natureOfJob\": 1,\n            \"salaryMin\": 15000,\n            \"salaryMax\": 34999,\n            \"shiftType\": null,\n            \"availableJoin\": null,\n            \"genderPreference\": \"Both\",\n            \"category\": null,\n            \"exServicemen\": 0,\n            \"functionalArea\": 0,\n            \"agePreference\": 27,\n            \"maxAge\": null,\n            \"educationLevel\": \"12th\",\n            \"qualification\": null,\n            \"qualification2\": null,\n            \"qualification3\": null,\n            \"vacancies\": 221,\n            \"differentlyAbled\": 0,\n            \"isActive\": 1,\n            \"createdAt\": \"2023-09-03T18:15:00.000Z\"\n        },\n        {\n            \"metadata\": {\n                \"location\": null,\n                \"redisGeoKey\": null\n            },\n            \"_id\": \"64f5fdd69f5ad5023ccf363c\",\n            \"id\": 8625,\n            \"orgId\": 1962826,\n            \"orgName\": \"Future Guidence\",\n            \"jobTitle\": \"Part time +skill development\",\n            \"designation\": null,\n            \"salaryType\": \"Monthly\",\n            \"description\": \"18+Age\\nIncome depends on your work and efforts\",\n            \"minExperience\": null,\n            \"maxExperience\": null,\n            \"relMinExp\": null,\n            \"relMaxExp\": null,\n            \"location\": [\n                666\n            ],\n            \"stateId\": [\n                3\n            ],\n            \"natureOfJob\": 1,\n            \"salaryMin\": 10000,\n            \"salaryMax\": 50000,\n            \"shiftType\": null,\n            \"availableJoin\": null,\n            \"genderPreference\": \"Both\",\n            \"category\": null,\n            \"exServicemen\": 0,\n            \"functionalArea\": 0,\n            \"agePreference\": 30,\n            \"maxAge\": null,\n            \"educationLevel\": \"12th\",\n            \"qualification\": null,\n            \"qualification2\": null,\n            \"qualification3\": null,\n            \"vacancies\": 150,\n            \"differentlyAbled\": 0,\n            \"isActive\": 1,\n            \"createdAt\": \"2023-09-03T18:15:00.000Z\"\n        },\n        {\n            \"metadata\": {\n                \"location\": null,\n                \"redisGeoKey\": null\n            },\n            \"_id\": \"64f5fdd69f5ad5023ccf363d\",\n            \"id\": 8624,\n            \"orgId\": 1962826,\n            \"orgName\": \"Future Guidence\",\n            \"jobTitle\": \"Online work\",\n            \"designation\": null,\n            \"salaryType\": \"Monthly\",\n            \"description\": \"18+Age\\nIncome depends on your work and efforts\",\n            \"minExperience\": null,\n            \"maxExperience\": null,\n            \"relMinExp\": null,\n            \"relMaxExp\": null,\n            \"location\": [\n                666\n            ],\n            \"stateId\": [\n                3\n            ],\n            \"natureOfJob\": 1,\n            \"salaryMin\": 8000,\n            \"salaryMax\": 15000,\n            \"shiftType\": null,\n            \"availableJoin\": null,\n            \"genderPreference\": \"Both\",\n            \"category\": null,\n            \"exServicemen\": 0,\n            \"functionalArea\": 0,\n            \"agePreference\": 30,\n            \"maxAge\": null,\n            \"educationLevel\": \"12th\",\n            \"qualification\": null,\n            \"qualification2\": null,\n            \"qualification3\": null,\n            \"vacancies\": 200,\n            \"differentlyAbled\": 0,\n            \"isActive\": 1,\n            \"createdAt\": \"2023-09-03T18:15:00.000Z\"\n        },\n        {\n            \"metadata\": {\n                \"location\": null,\n                \"redisGeoKey\": null\n            },\n            \"_id\": \"64f5fdd69f5ad5023ccf363e\",\n            \"id\": 8623,\n            \"orgId\": 1784845,\n            \"orgName\": \"Career Guidance\",\n            \"jobTitle\": \"JOB FOR 12TH AND GRADUATE\",\n            \"designation\": null,\n            \"salaryType\": \"Monthly\",\n            \"description\": \"APPLY ONLY SERIOUS PERSON\",\n            \"minExperience\": null,\n            \"maxExperience\": null,\n            \"relMinExp\": null,\n            \"relMaxExp\": null,\n            \"location\": [],\n            \"stateId\": [\n                37\n            ],\n            \"natureOfJob\": 1,\n            \"salaryMin\": 12000,\n            \"salaryMax\": 17998,\n            \"shiftType\": null,\n            \"availableJoin\": null,\n            \"genderPreference\": \"Both\",\n            \"category\": null,\n            \"exServicemen\": 0,\n            \"functionalArea\": 0,\n            \"agePreference\": 26,\n            \"maxAge\": null,\n            \"educationLevel\": \"12th\",\n            \"qualification\": null,\n            \"qualification2\": null,\n            \"qualification3\": null,\n            \"vacancies\": 12,\n            \"differentlyAbled\": 0,\n            \"isActive\": 1,\n            \"createdAt\": \"2023-09-03T18:15:00.000Z\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Govt Job Details",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_BASE_URL}}/jobs/pgrkam/public/64f5fde59f5ad5023ccf381e",
+									"host": [
+										"{{LOCAL_BASE_URL}}"
+									],
+									"path": [
+										"jobs",
+										"pgrkam",
+										"public",
+										"64f5fde59f5ad5023ccf381e"
+									]
+								},
+								"description": "Users can fetch specific Govt. Job details available on PGRKAM portal."
+							},
+							"response": [
+								{
+									"name": "Govt Job Details",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/jobs/pgrkam/public/64f5fde59f5ad5023ccf381e",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"jobs",
+												"pgrkam",
+												"public",
+												"64f5fde59f5ad5023ccf381e"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1013"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3f5-l+v4IOLGFTVOn0Q5rRXcN1rL++k\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 05 Sep 2023 18:10:26 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"job\": {\n        \"_id\": \"64f5fde59f5ad5023ccf381e\",\n        \"id\": 9931,\n        \"companyName\": \" Bharat Petroleum Corporation Limited (BPCL)\",\n        \"govt\": \"Government of India\",\n        \"jobTitle\": \"Chemical apprentices\",\n        \"location\": \"Maharashtra  \",\n        \"description\": \"\",\n        \"displayQualification\": \"Graduate in chemical engineering\",\n        \"searchQualification\": \"71,72\",\n        \"educationLevel\": 7,\n        \"educationLevel2\": 7,\n        \"searchQualification2\": \"71,72\",\n        \"designation\": null,\n        \"districtId\": null,\n        \"experience\": \"Fresher\",\n        \"specialization\": \"'admin'\",\n        \"minExperience\": 0,\n        \"maxExperience\": 0,\n        \"salary\": null,\n        \"genderPreference\": \"Male\",\n        \"genderSearch\": null,\n        \"minAgeSearch\": null,\n        \"minAge\": 18,\n        \"maxAge\": 27,\n        \"vacancy\": 17,\n        \"lastDate\": \"2023-09-03T18:15:00.000Z\",\n        \"walkInInterview\": null,\n        \"postedOn\": \"2023-07-13T00:00:00.000Z\",\n        \"pdfLink\": \"https://portal.mhrdnats.gov.in/boat/login/user_login.action\",\n        \"applyLink\": \"https://portal.mhrdnats.gov.in/boat/login/user_login.action\",\n        \"applyMode\": \"Online\",\n        \"remarks\": null,\n        \"createdAt\": \"2023-07-12T18:15:00.000Z\",\n        \"updatedAt\": \"2023-07-13T01:13:44.000Z\",\n        \"postedBy\": \"Meenakshi Bedi\",\n        \"__v\": 0\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Private Job Details",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_BASE_URL}}/jobs/pgrkam/private/64f5fdd69f5ad5023ccf3635",
+									"host": [
+										"{{LOCAL_BASE_URL}}"
+									],
+									"path": [
+										"jobs",
+										"pgrkam",
+										"private",
+										"64f5fdd69f5ad5023ccf3635"
+									]
+								},
+								"description": "Users can fetch specific Private Job details available on PGRKAM portal."
+							},
+							"response": [
+								{
+									"name": "Private Job Details",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/jobs/pgrkam/private/64f5fdd69f5ad5023ccf3635",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"jobs",
+												"pgrkam",
+												"private",
+												"64f5fdd69f5ad5023ccf3635"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "882"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"372-xxvn4BG4OfWnRG2a97KcB35gvjg\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 05 Sep 2023 18:10:44 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"job\": {\n        \"metadata\": {\n            \"location\": null,\n            \"redisGeoKey\": null\n        },\n        \"_id\": \"64f5fdd69f5ad5023ccf3635\",\n        \"id\": 8632,\n        \"orgId\": 1936533,\n        \"orgName\": \"Online placement Hub\",\n        \"jobTitle\": \"Assistant Supervisor\",\n        \"designation\": null,\n        \"salaryType\": \"Monthly\",\n        \"description\": \"No experience needed. \\nMinimum Qualification:12th \\nTime flexibility. \\nSalary : 20k-25k. \\nWork content:you can do the work by using your mobile phone.\",\n        \"minExperience\": null,\n        \"maxExperience\": null,\n        \"relMinExp\": null,\n        \"relMaxExp\": null,\n        \"location\": [],\n        \"stateId\": [\n            37\n        ],\n        \"natureOfJob\": 1,\n        \"salaryMin\": 20000,\n        \"salaryMax\": 25000,\n        \"shiftType\": null,\n        \"availableJoin\": null,\n        \"genderPreference\": \"Both\",\n        \"category\": null,\n        \"exServicemen\": 0,\n        \"functionalArea\": 0,\n        \"agePreference\": 30,\n        \"maxAge\": null,\n        \"educationLevel\": \"Graduate\",\n        \"qualification\": null,\n        \"qualification2\": null,\n        \"qualification3\": null,\n        \"vacancies\": 30,\n        \"differentlyAbled\": 0,\n        \"isActive\": 1,\n        \"createdAt\": \"2023-09-03T18:15:00.000Z\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Private Jobs Recommendations",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_BASE_URL}}/jobs/pgrkam/public/recommendations",
+									"host": [
+										"{{LOCAL_BASE_URL}}"
+									],
+									"path": [
+										"jobs",
+										"pgrkam",
+										"public",
+										"recommendations"
+									]
+								},
+								"description": "NOT IMPLEMENTED YET"
+							},
+							"response": []
+						},
+						{
+							"name": "Govt Jobs Recommendations Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_BASE_URL}}/jobs/pgrkam/public/recommendations",
+									"host": [
+										"{{LOCAL_BASE_URL}}"
+									],
+									"path": [
+										"jobs",
+										"pgrkam",
+										"public",
+										"recommendations"
+									]
+								},
+								"description": "NOT IMPLEMENTED YET"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "JKK",
+					"item": [
+						{
+							"name": "Employer",
+							"item": [
+								{
+									"name": "Application",
+									"item": [
+										{
+											"name": "Get Applications",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{TOKEN}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/jobs/jkk/659db46f4d5c99635559b9ee/applications?page=0&pageSize=10&sort=dsc",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"jobs",
+														"jkk",
+														"659db46f4d5c99635559b9ee",
+														"applications"
+													],
+													"query": [
+														{
+															"key": "page",
+															"value": "0"
+														},
+														{
+															"key": "pageSize",
+															"value": "10"
+														},
+														{
+															"key": "sort",
+															"value": "dsc"
+														}
+													]
+												},
+												"description": "Employers can fetch applications received under a particular job post."
+											},
+											"response": [
+												{
+													"name": "Get Applications",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{LOCAL_BASE_URL}}/jobs/jkk/659db46f4d5c99635559b9ee/applications?page=0&pageSize=10&sort=dsc",
+															"host": [
+																"{{LOCAL_BASE_URL}}"
+															],
+															"path": [
+																"jobs",
+																"jkk",
+																"659db46f4d5c99635559b9ee",
+																"applications"
+															],
+															"query": [
+																{
+																	"key": "page",
+																	"value": "0"
+																},
+																{
+																	"key": "pageSize",
+																	"value": "10"
+																},
+																{
+																	"key": "sort",
+																	"value": "dsc"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "1020"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"3fc-C26kb+826svCCemRQfrRu7Z8aHc\""
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 12 Jan 2024 14:35:52 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "[\n    {\n        \"_id\": \"65a14e4463b6b1f3e42ffcf3\",\n        \"jobseekerUserId\": \"654678f7b6479082ab351bc6\",\n        \"jkkJobPostId\": \"659db46f4d5c99635559b9ee\",\n        \"personalInfo\": {\n            \"firstName\": \"Anurag\",\n            \"lastName\": \"Singh\",\n            \"dob\": \"1996-06-01T18:15:00.000Z\",\n            \"nationality\": \"Indian\",\n            \"gender\": \"Male\"\n        },\n        \"contactInfo\": {\n            \"address\": \"XYZ Street\",\n            \"phoneNo\": \"9999999999\",\n            \"socialMediaProfiles\": [\n                \"https://programmer_govinda.com\"\n            ]\n        },\n        \"education\": [\n            {\n                \"degree\": \"12th\",\n                \"score\": 89.23,\n                \"scoredOutOf\": 100,\n                \"institute\": \"DEF Public School\",\n                \"location\": \"STU, JDEK\",\n                \"startDate\": \"1996-06-01T18:15:00.000Z\",\n                \"endDate\": \"1996-06-01T18:15:00.000Z\",\n                \"_id\": \"6546d5562f0609957da17bb8\"\n            }\n        ],\n        \"experience\": [\n            {\n                \"jobTitle\": \"Backend Developer\",\n                \"description\": \"<points related to experience>\",\n                \"company\": \"ABC Internationals\",\n                \"location\": \"Remote\",\n                \"startDate\": \"1996-06-01T18:15:00.000Z\",\n                \"endDate\": \"1996-06-01T18:15:00.000Z\",\n                \"_id\": \"6546d5562f0609957da17bb9\"\n            }\n        ],\n        \"skills\": [\n            \"Backend Development\",\n            \"Full-Stack Development\",\n            \"Android Development\"\n        ],\n        \"createdAt\": \"2024-01-12T14:35:48.615Z\",\n        \"updatedAt\": \"2024-01-12T14:35:48.615Z\",\n        \"__v\": 0\n    }\n]"
+												}
+											]
+										},
+										{
+											"name": "Get Application Details",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{TOKEN}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/jobs/jkk/659db46f4d5c99635559b9ee/applications/65a150c2f620f007e41c6301",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"jobs",
+														"jkk",
+														"659db46f4d5c99635559b9ee",
+														"applications",
+														"65a150c2f620f007e41c6301"
+													]
+												},
+												"description": "Employers can fetch specific application received under a particular job post."
+											},
+											"response": [
+												{
+													"name": "Get Application Details",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{LOCAL_BASE_URL}}/jobs/jkk/659db46f4d5c99635559b9ee/applications/65a14e4463b6b1f3e42ffcf3",
+															"host": [
+																"{{LOCAL_BASE_URL}}"
+															],
+															"path": [
+																"jobs",
+																"jkk",
+																"659db46f4d5c99635559b9ee",
+																"applications",
+																"65a14e4463b6b1f3e42ffcf3"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "1018"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"3fa-SXQ5XUOWBSKf5LJUtEnssqsvIHc\""
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 12 Jan 2024 14:37:20 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"_id\": \"65a14e4463b6b1f3e42ffcf3\",\n    \"jobseekerUserId\": \"654678f7b6479082ab351bc6\",\n    \"jkkJobPostId\": \"659db46f4d5c99635559b9ee\",\n    \"personalInfo\": {\n        \"firstName\": \"Anurag\",\n        \"lastName\": \"Singh\",\n        \"dob\": \"1996-06-01T18:15:00.000Z\",\n        \"nationality\": \"Indian\",\n        \"gender\": \"Male\"\n    },\n    \"contactInfo\": {\n        \"address\": \"XYZ Street\",\n        \"phoneNo\": \"9999999999\",\n        \"socialMediaProfiles\": [\n            \"https://programmer_govinda.com\"\n        ]\n    },\n    \"education\": [\n        {\n            \"degree\": \"12th\",\n            \"score\": 89.23,\n            \"scoredOutOf\": 100,\n            \"institute\": \"DEF Public School\",\n            \"location\": \"STU, JDEK\",\n            \"startDate\": \"1996-06-01T18:15:00.000Z\",\n            \"endDate\": \"1996-06-01T18:15:00.000Z\",\n            \"_id\": \"6546d5562f0609957da17bb8\"\n        }\n    ],\n    \"experience\": [\n        {\n            \"jobTitle\": \"Backend Developer\",\n            \"description\": \"<points related to experience>\",\n            \"company\": \"ABC Internationals\",\n            \"location\": \"Remote\",\n            \"startDate\": \"1996-06-01T18:15:00.000Z\",\n            \"endDate\": \"1996-06-01T18:15:00.000Z\",\n            \"_id\": \"6546d5562f0609957da17bb9\"\n        }\n    ],\n    \"skills\": [\n        \"Backend Development\",\n        \"Full-Stack Development\",\n        \"Android Development\"\n    ],\n    \"createdAt\": \"2024-01-12T14:35:48.615Z\",\n    \"updatedAt\": \"2024-01-12T14:35:48.615Z\",\n    \"__v\": 0\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Job Post",
+									"item": [
+										{
+											"name": "Create Job Post",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{TOKEN}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"companyName\": \"Your Company\",\r\n    \"location\": {\r\n        \"lat\": 0,\r\n        \"lng\": 0\r\n    },\r\n    \"jobInfo\": {\r\n        \"title\": \"Infrastructure Developer\",\r\n        \"description\": \"Exciting software development opportunity\",\r\n        \"vacancies\": 3,\r\n        \"salary\": {\r\n            \"min\": 50000,\r\n            \"max\": 80000\r\n        },\r\n        \"genderPreference\": \"Male\",\r\n        \"responsibilities\": [\"Develop software\", \"Collaborate with team\"],\r\n        \"requiredSkills\": [\"Programming\", \"Problem-solving\"]\r\n    },\r\n    \"tags\": [\"Tech\", \"Opportunity\"]\r\n}\r\n",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/jobs/jkk",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"jobs",
+														"jkk"
+													]
+												},
+												"description": "Employers can create jobs posts for new openings in the company."
+											},
+											"response": [
+												{
+													"name": "Create Job Post",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n    \"companyName\": \"Your Company\",\r\n    \"location\": {\r\n        \"lat\": 0,\r\n        \"lng\": 0\r\n    },\r\n    \"jobInfo\": {\r\n        \"title\": \"Software Developer\",\r\n        \"description\": \"Exciting software development opportunity\",\r\n        \"vacancies\": 3,\r\n        \"salary\": {\r\n            \"min\": 50000,\r\n            \"max\": 80000\r\n        },\r\n        \"genderPreference\": \"Male\",\r\n        \"responsibilities\": [\"Develop software\", \"Collaborate with team\"],\r\n        \"requiredSkills\": [\"Programming\", \"Problem-solving\"]\r\n    },\r\n    \"tags\": [\"Tech\", \"Opportunity\"]\r\n}\r\n",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{LOCAL_BASE_URL}}/jobs/jkk",
+															"host": [
+																"{{LOCAL_BASE_URL}}"
+															],
+															"path": [
+																"jobs",
+																"jkk"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "43"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"2b-7pJJzb+wVufJ1GdkMJ1Iyr7pV1s\""
+														},
+														{
+															"key": "Date",
+															"value": "Tue, 09 Jan 2024 21:02:39 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"message\": \"Job Post opened successfully!\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Update Job Post Status",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{TOKEN}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PATCH",
+												"header": [],
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/jobs/jkk/659f2ae1a52a598a907485f8?status=closed",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"jobs",
+														"jkk",
+														"659f2ae1a52a598a907485f8"
+													],
+													"query": [
+														{
+															"key": "status",
+															"value": "closed"
+														}
+													]
+												},
+												"description": "Employers can update status of previously opened job posts."
+											},
+											"response": [
+												{
+													"name": "Create Job Post Copy",
+													"originalRequest": {
+														"method": "PATCH",
+														"header": [],
+														"url": {
+															"raw": "{{LOCAL_BASE_URL}}/jobs/jkk/659c76894bd4be3f2b6cc3c7?status=closed",
+															"host": [
+																"{{LOCAL_BASE_URL}}"
+															],
+															"path": [
+																"jobs",
+																"jkk",
+																"659c76894bd4be3f2b6cc3c7"
+															],
+															"query": [
+																{
+																	"key": "status",
+																	"value": "closed"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "44"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"2c-6RNKX5i1CRUSXqRc3jFt/rDxeJY\""
+														},
+														{
+															"key": "Date",
+															"value": "Tue, 09 Jan 2024 20:50:15 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"message\": \"Job Post updated successfully!\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Get Posted Jobs",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{TOKEN}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/jobs/jkk/mine?page=0&pageSize=10&sort=dsc",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"jobs",
+														"jkk",
+														"mine"
+													],
+													"query": [
+														{
+															"key": "page",
+															"value": "0"
+														},
+														{
+															"key": "pageSize",
+															"value": "10"
+														},
+														{
+															"key": "sort",
+															"value": "dsc"
+														}
+													]
+												},
+												"description": "Employers can fetch job posts they posted previously."
+											},
+											"response": [
+												{
+													"name": "Get Employer's Posted Jobs",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{LOCAL_BASE_URL}}/jobs/jkk/mine?page=0&pageSize=10&sort=dsc",
+															"host": [
+																"{{LOCAL_BASE_URL}}"
+															],
+															"path": [
+																"jobs",
+																"jkk",
+																"mine"
+															],
+															"query": [
+																{
+																	"key": "page",
+																	"value": "0"
+																},
+																{
+																	"key": "pageSize",
+																	"value": "10"
+																},
+																{
+																	"key": "sort",
+																	"value": "dsc"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "2391"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"957-N7v8+Zw/WRSGSMBbqtW3t11UibY\""
+														},
+														{
+															"key": "Date",
+															"value": "Thu, 11 Jan 2024 16:13:02 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "[\n    {\n        \"metadata\": {\n            \"location\": {\n                \"type\": \"Point\",\n                \"coordinates\": [\n                    0,\n                    0\n                ]\n            },\n            \"status\": \"closed\"\n        },\n        \"employer\": {\n            \"userId\": \"654678f7b6479082ab351bc6\"\n        },\n        \"jobInfo\": {\n            \"salary\": {\n                \"min\": 50000,\n                \"max\": 80000\n            },\n            \"title\": \"Infrastructure Developer\",\n            \"description\": \"Exciting software development opportunity\",\n            \"genderPreference\": \"Male\",\n            \"vacancies\": 3,\n            \"responsibilities\": [\n                \"Develop software\",\n                \"Collaborate with team\"\n            ],\n            \"requiredSkills\": [\n                \"Programming\",\n                \"Problem-solving\"\n            ]\n        },\n        \"_id\": \"659f2ae1a52a598a907485f8\",\n        \"companyName\": \"Your Company\",\n        \"tags\": [\n            \"Tech\",\n            \"Opportunity\"\n        ],\n        \"createdAt\": \"2024-01-10T23:40:17.512Z\",\n        \"updatedAt\": \"2024-01-10T23:44:18.080Z\",\n        \"__v\": 0\n    },\n    {\n        \"metadata\": {\n            \"location\": {\n                \"type\": \"Point\",\n                \"coordinates\": [\n                    0,\n                    0\n                ]\n            },\n            \"status\": \"open\"\n        },\n        \"employer\": {\n            \"userId\": \"654678f7b6479082ab351bc6\"\n        },\n        \"jobInfo\": {\n            \"salary\": {\n                \"min\": 50000,\n                \"max\": 80000\n            },\n            \"title\": \"Software Developer\",\n            \"description\": \"Exciting software development opportunity\",\n            \"genderPreference\": \"Male\",\n            \"vacancies\": 3,\n            \"responsibilities\": [\n                \"Develop software\",\n                \"Collaborate with team\"\n            ],\n            \"requiredSkills\": [\n                \"Programming\",\n                \"Problem-solving\"\n            ]\n        },\n        \"_id\": \"659db46f4d5c99635559b9ee\",\n        \"companyName\": \"Your Company\",\n        \"tags\": [\n            \"Tech\",\n            \"Opportunity\"\n        ],\n        \"createdAt\": \"2024-01-09T21:02:39.571Z\",\n        \"updatedAt\": \"2024-01-09T21:02:39.571Z\",\n        \"__v\": 0\n    },\n    {\n        \"metadata\": {\n            \"location\": {\n                \"type\": \"Point\",\n                \"coordinates\": [\n                    0,\n                    0\n                ]\n            },\n            \"status\": \"closed\"\n        },\n        \"employer\": {\n            \"userId\": \"654678f7b6479082ab351bc6\"\n        },\n        \"jobInfo\": {\n            \"salary\": {\n                \"min\": 50000,\n                \"max\": 80000\n            },\n            \"title\": \"Software Developer\",\n            \"description\": \"Exciting software development opportunity\",\n            \"genderPreference\": \"Male\",\n            \"vacancies\": 3,\n            \"responsibilities\": [\n                \"Develop software\",\n                \"Collaborate with team\"\n            ],\n            \"requiredSkills\": [\n                \"Programming\",\n                \"Problem-solving\"\n            ]\n        },\n        \"_id\": \"659c76894bd4be3f2b6cc3c7\",\n        \"companyName\": \"Your Company\",\n        \"tags\": [\n            \"Tech\",\n            \"Opportunity\"\n        ],\n        \"createdAt\": \"2024-01-08T22:26:18.257Z\",\n        \"updatedAt\": \"2024-01-09T20:50:15.296Z\",\n        \"__v\": 0\n    },\n    {\n        \"metadata\": {\n            \"location\": {\n                \"type\": \"Point\",\n                \"coordinates\": [\n                    0,\n                    0\n                ]\n            },\n            \"status\": \"open\"\n        },\n        \"employer\": {\n            \"userId\": \"654678f7b6479082ab351bc6\"\n        },\n        \"jobInfo\": {\n            \"salary\": {\n                \"min\": 50000,\n                \"max\": 80000\n            },\n            \"title\": \"Software Developer\",\n            \"description\": \"Exciting software development opportunity\",\n            \"genderPreference\": \"Male\",\n            \"vacancies\": 3,\n            \"responsibilities\": [\n                \"Develop software\",\n                \"Collaborate with team\"\n            ],\n            \"requiredSkills\": [\n                \"Programming\",\n                \"Problem-solving\"\n            ]\n        },\n        \"_id\": \"659c5e0d3d26602ac39fe691\",\n        \"companyName\": \"Your Company\",\n        \"tags\": [\n            \"Tech\",\n            \"Opportunity\"\n        ],\n        \"createdAt\": \"2024-01-08T20:41:49.995Z\",\n        \"updatedAt\": \"2024-01-08T20:41:49.995Z\",\n        \"__v\": 0\n    }\n]"
+												}
+											]
+										}
+									]
+								}
+							],
+							"description": "Following endpoints allow employers to perform operations on job posts and their corresponding received applications."
+						},
+						{
+							"name": "Jobseeker",
+							"item": [
+								{
+									"name": "Application",
+									"item": [
+										{
+											"name": "Submit application",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{TOKEN}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [],
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/jobs/jkk/659db46f4d5c99635559b9ee/applications",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"jobs",
+														"jkk",
+														"659db46f4d5c99635559b9ee",
+														"applications"
+													]
+												},
+												"description": "Jobseekers can submit their profile for the mentioned job post."
+											},
+											"response": [
+												{
+													"name": "Submit application",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"url": {
+															"raw": "{{LOCAL_BASE_URL}}/jobs/jkk/659db46f4d5c99635559b9ee/applications",
+															"host": [
+																"{{LOCAL_BASE_URL}}"
+															],
+															"path": [
+																"jobs",
+																"jkk",
+																"659db46f4d5c99635559b9ee",
+																"applications"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "53"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"35-tljwUp2I2mD4SuZ1J1DKlcfjhrk\""
+														},
+														{
+															"key": "Date",
+															"value": "Thu, 11 Jan 2024 20:27:20 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"message\": \"Job Application submitted successfully!\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Revoke Application",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{TOKEN}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{LOCAL_BASE_URL}}/jobs/jkk/659db46f4d5c99635559b9ee/applications",
+													"host": [
+														"{{LOCAL_BASE_URL}}"
+													],
+													"path": [
+														"jobs",
+														"jkk",
+														"659db46f4d5c99635559b9ee",
+														"applications"
+													]
+												},
+												"description": "Jobseekers can remove their profile/application from the previously job post."
+											},
+											"response": [
+												{
+													"name": "Revoke Application",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{LOCAL_BASE_URL}}/jobs/jkk/659db46f4d5c99635559b9ee/applications",
+															"host": [
+																"{{LOCAL_BASE_URL}}"
+															],
+															"path": [
+																"jobs",
+																"jkk",
+																"659db46f4d5c99635559b9ee",
+																"applications"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "50"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"32-OD9XPgwlfdkA2Xg2j8kRJDziaXc\""
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 12 Jan 2024 14:34:20 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"message\": \"Job Application redacted succesfully\"\n}"
+												}
+											]
+										}
+									]
+								}
+							],
+							"description": "Following endpoints allow jobseekers to perform operations on job applications that they want to submit or update on a specific job post."
+						},
+						{
+							"name": "Get Jobs",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_BASE_URL}}/jobs/jkk?page=0&pageSize=10&sort=dsc",
+									"host": [
+										"{{LOCAL_BASE_URL}}"
+									],
+									"path": [
+										"jobs",
+										"jkk"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										},
+										{
+											"key": "sort",
+											"value": "dsc"
+										}
+									]
+								},
+								"description": "Users can fetch job posts that were posted on \"Job Ki Khoj\" platform."
+							},
+							"response": [
+								{
+									"name": "Get Jobs",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/jobs/jkk?page=0&pageSize=10&sort=dsc",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"jobs",
+												"jkk"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "10"
+												},
+												{
+													"key": "sort",
+													"value": "dsc"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1191"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"4a7-1C+XPBUbzRBj5qVx+yT+cALzfdc\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 11 Jan 2024 15:50:36 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"metadata\": {\n            \"location\": {\n                \"type\": \"Point\",\n                \"coordinates\": [\n                    0,\n                    0\n                ]\n            },\n            \"status\": \"open\"\n        },\n        \"employer\": {\n            \"userId\": \"654678f7b6479082ab351bc6\"\n        },\n        \"jobInfo\": {\n            \"salary\": {\n                \"min\": 50000,\n                \"max\": 80000\n            },\n            \"title\": \"Software Developer\",\n            \"description\": \"Exciting software development opportunity\",\n            \"genderPreference\": \"Male\",\n            \"vacancies\": 3,\n            \"responsibilities\": [\n                \"Develop software\",\n                \"Collaborate with team\"\n            ],\n            \"requiredSkills\": [\n                \"Programming\",\n                \"Problem-solving\"\n            ]\n        },\n        \"_id\": \"659db46f4d5c99635559b9ee\",\n        \"companyName\": \"Your Company\",\n        \"tags\": [\n            \"Tech\",\n            \"Opportunity\"\n        ],\n        \"createdAt\": \"2024-01-09T21:02:39.571Z\",\n        \"updatedAt\": \"2024-01-09T21:02:39.571Z\",\n        \"__v\": 0\n    },\n    {\n        \"metadata\": {\n            \"location\": {\n                \"type\": \"Point\",\n                \"coordinates\": [\n                    0,\n                    0\n                ]\n            },\n            \"status\": \"open\"\n        },\n        \"employer\": {\n            \"userId\": \"654678f7b6479082ab351bc6\"\n        },\n        \"jobInfo\": {\n            \"salary\": {\n                \"min\": 50000,\n                \"max\": 80000\n            },\n            \"title\": \"Software Developer\",\n            \"description\": \"Exciting software development opportunity\",\n            \"genderPreference\": \"Male\",\n            \"vacancies\": 3,\n            \"responsibilities\": [\n                \"Develop software\",\n                \"Collaborate with team\"\n            ],\n            \"requiredSkills\": [\n                \"Programming\",\n                \"Problem-solving\"\n            ]\n        },\n        \"_id\": \"659c5e0d3d26602ac39fe691\",\n        \"companyName\": \"Your Company\",\n        \"tags\": [\n            \"Tech\",\n            \"Opportunity\"\n        ],\n        \"createdAt\": \"2024-01-08T20:41:49.995Z\",\n        \"updatedAt\": \"2024-01-08T20:41:49.995Z\",\n        \"__v\": 0\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Get Job Details",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{LOCAL_BASE_URL}}/jobs/jkk/659c76894bd4be3f2b6cc3c7",
+									"host": [
+										"{{LOCAL_BASE_URL}}"
+									],
+									"path": [
+										"jobs",
+										"jkk",
+										"659c76894bd4be3f2b6cc3c7"
+									]
+								},
+								"description": "Users can fetch specific job post details that was posted on the \"Job Ki Khoj\" platform."
+							},
+							"response": [
+								{
+									"name": "Get Job Details",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{LOCAL_BASE_URL}}/jobs/jkk/659c76894bd4be3f2b6cc3c7",
+											"host": [
+												"{{LOCAL_BASE_URL}}"
+											],
+											"path": [
+												"jobs",
+												"jkk",
+												"659c76894bd4be3f2b6cc3c7"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "596"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"254-OnyLKdwK5QeSUi3/Hk2zrf4+7Eo\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 09 Jan 2024 21:02:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"metadata\": {\n        \"location\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                0,\n                0\n            ]\n        },\n        \"status\": \"closed\"\n    },\n    \"employer\": {\n        \"userId\": \"654678f7b6479082ab351bc6\"\n    },\n    \"jobInfo\": {\n        \"salary\": {\n            \"min\": 50000,\n            \"max\": 80000\n        },\n        \"title\": \"Software Developer\",\n        \"description\": \"Exciting software development opportunity\",\n        \"genderPreference\": \"Male\",\n        \"vacancies\": 3,\n        \"responsibilities\": [\n            \"Develop software\",\n            \"Collaborate with team\"\n        ],\n        \"requiredSkills\": [\n            \"Programming\",\n            \"Problem-solving\"\n        ]\n    },\n    \"_id\": \"659c76894bd4be3f2b6cc3c7\",\n    \"companyName\": \"Your Company\",\n    \"tags\": [\n        \"Tech\",\n        \"Opportunity\"\n    ],\n    \"createdAt\": \"2024-01-08T22:26:18.257Z\",\n    \"updatedAt\": \"2024-01-09T20:50:15.296Z\",\n    \"__v\": 0\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{LOCAL_BASE_URL}}/health",
+					"host": [
+						"{{LOCAL_BASE_URL}}"
+					],
+					"path": [
+						"health"
+					]
+				},
+				"description": "Endpoint to check the health of the API."
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_BASE_URL}}/health",
+							"host": [
+								"{{LOCAL_BASE_URL}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "16"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"10-MxB4y4MLcx6QDsp8b8vgp7iFMFo\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Jan 2024 20:20:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"OK\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "LOCAL_BASE_URL",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "TOKEN",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "API_KEY",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "BASE_URL",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "LOCAL_API_KEY",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
