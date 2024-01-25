@@ -58,6 +58,8 @@ To set up the project, follow these steps:
    JWT_SECRET=
    PGRKAM_BASE_URL=https://pgrkamadmin.pgrkam.com/m_api/v1/index.php
    MAPS_API_KEY=
+
+   # https://api.courier.com api key
    MAIL_SERVICE_API_KEY=
    CLOUDINARY_URL=
    ```
