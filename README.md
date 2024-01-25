@@ -2,7 +2,7 @@
 
 ## Overview
 
-"Job Ki Khoj" is a LinkedIn-like job portal designed for employers and job seekers to post and apply for job opportunities. Initially developed for the SIH2023 Hackathon for the Punjab Government's PGRKAM website, this project serves as an extension to the existing job portal, introducing additional features. The backend components consist of two services: the server and the ML service. The server manages user requests, while the ML service, connected via gRPC, handles recommendation-related tasks.
+"Job Ki Khoj" is a job portal designed for employers and job seekers to post and apply for job opportunities. Initially developed for the SIH2023 Hackathon for the Punjab Government's PGRKAM website, this project serves as an extension to the existing job portal, introducing additional features. The backend components consist of two services: the server and the ML service. The server manages user requests, while the ML service, connected via gRPC, handles recommendation-related tasks.
 
 ### Key Features
 
